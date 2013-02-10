@@ -1,0 +1,21 @@
+To install on a new machine:
+
+    $ mkvirtualenv pelican
+    $ pip install pelican ghp-import
+    $ cd /PATH/TO/SITE/
+    $ setvirtualenvproject
+
+To develop:
+
+    $ make dev-server
+    $ # edit site to your liking
+
+To deploy:
+
+    $ git add ...
+    $ git commit ...
+    Push changes to production? [Yes/no] Y
+    Changes committed to release branch and pushed to production.
+    $
+
+
