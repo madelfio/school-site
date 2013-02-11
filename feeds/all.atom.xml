@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-10T19:46:00-05:00</updated><entry><title>Deploying with Git</title><link href="http://umiacs.umd.edu/~marco/notes/deploying-with-git" rel="alternate"></link><updated>2013-02-10T19:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-10:notes/deploying-with-git</id><summary type="html">&lt;p&gt;Testing...&lt;/p&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; file example.png
+&lt;span class="gp"&gt;$&lt;/span&gt; identify example.png  &lt;span class="c"&gt;# (also works with jpegs)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Resize image&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png  &lt;span class="c"&gt;# resize to 200x200 pixels&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png  &lt;span class="c"&gt;# resize width to 200, preserving aspect ratio&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png  &lt;span class="c"&gt;# resize height to 200, preserving aspect ratio&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;h4&gt;"PDF Jujitsu"&lt;/h4&gt;
+&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
+sometimes it's easier to manipulate the output PDF rather than the source
+TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for
+this.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf&lt;/span&gt;
+&lt;span class="k"&gt;function &lt;/span&gt;pdfextract&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="c"&gt;# arguments:&lt;/span&gt;
+  &lt;span class="c"&gt;#   $1 is the first page of the range to extract&lt;/span&gt;
+  &lt;span class="c"&gt;#   $2 is the last page of the range to extract&lt;/span&gt;
+  &lt;span class="c"&gt;#   $3 is the input file&lt;/span&gt;
+  &lt;span class="c"&gt;#   output file will be named &amp;quot;inputfile_pXX-pYY.pdf&amp;quot;&lt;/span&gt;
+  gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dNOPAUSE -dBATCH -dSAFER &lt;span class="se"&gt;\&lt;/span&gt;
+  -dFirstPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; -dLastPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+  -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="p"&gt;%.pdf&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;_p&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;-p&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.pdf &lt;span class="se"&gt;\&lt;/span&gt;
+  &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;# by marco. complements pdfextract&lt;/span&gt;
+&lt;span class="k"&gt;function &lt;/span&gt;pdfmerge&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+  &lt;span class="c"&gt;# arguments:&lt;/span&gt;
+  &lt;span class="c"&gt;#   $1 is the name of the output file&lt;/span&gt;
+  &lt;span class="c"&gt;#   $2+ are the names of the input files&lt;/span&gt;
+  &lt;span class="nv"&gt;OUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;
+  &lt;span class="nb"&gt;shift&lt;/span&gt;
+&lt;span class="nb"&gt;  &lt;/span&gt;gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dNOPAUSE -dBATCH -dSAFER &lt;span class="se"&gt;\&lt;/span&gt;
+  -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$OUT&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+  &lt;span class="nv"&gt;$@&lt;/span&gt;  
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Examples&lt;/h4&gt;
+&lt;p&gt;You can use &lt;code&gt;pdfextract&lt;/code&gt; to extract pages 1-3 of a PDF:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;my-long-document.pdf&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; pdfextract 1 3 ./my-long-document.pdf
+&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;my-long-document_p1-p3.pdf  my-long-document.pdf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Or use &lt;code&gt;pdfmerge&lt;/code&gt; to merge a cover letter, proposal, and CV into a single PDF:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;cover-letter.pdf  cv.pdf  proposal.pdf&lt;/span&gt;
+&lt;span class="gp"&gt;$&lt;/span&gt; pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
+&lt;span class="gp"&gt;$&lt;/span&gt; ls
+&lt;span class="go"&gt;cover-letter.pdf  cv.pdf  proposal.pdf  submission.pdf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;h3&gt;Tips for SSH'ing around the lab machines&lt;/h3&gt;
+&lt;p&gt;The lab machines do not have public IP addresses by default.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; host lab-pc.umiacs.umd.edu
+&lt;span class="go"&gt;lab-pc.umiacs.umd.edu has address 192.168.83.91&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The 192.168.0.0/16 block is not for public addresses, so this means you
+won't be able to directly talk to lab-pc.umiacs.umd.edu from outside of the
+UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; host openlab.umiacs.umd.edu
+&lt;span class="go"&gt;openlab.umiacs.umd.edu has address 128.8.132.247&lt;/span&gt;
+&lt;span class="go"&gt;openlab.umiacs.umd.edu has address 128.8.132.248&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This means you can go through openlab to get to the lab machines.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh openlab.umiacs.umd.edu
+&lt;span class="go"&gt;user@openlab.umiacs.umd.edu&amp;#39;s password:&lt;/span&gt;
+&lt;span class="gp"&gt;user@opensub00:~$&lt;/span&gt; ssh lab-pc.umiacs.umd.edu
+&lt;span class="go"&gt;user@lab-pc.umiacs.umd.edu&amp;#39;s password:&lt;/span&gt;
+&lt;span class="gp"&gt;user@lab-pc:~$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;But this is tedious because you have to go through openlab and enter your
+password twice.  Remote access to the lab machines would be much more
+convenient if you could avoid these two hassles.&lt;/p&gt;
+&lt;h4&gt;Generate SSH key&lt;/h4&gt;
+&lt;p&gt;To avoid entering a password every time, you can create an ssh key.  There
+are many guides on this, like &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;this one from github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The short version is:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh-keygen -t rsa
+&lt;span class="go"&gt;Generating public/private rsa key pair.&lt;/span&gt;
+&lt;span class="go"&gt;Enter file in which to save the key (/home/user/.ssh/id_rsa):&lt;/span&gt;
+&lt;span class="go"&gt;Enter passphrase (empty for no passphrase): [Type a passphrase]&lt;/span&gt;
+&lt;span class="go"&gt;Enter same passphrase again: [Type passphrase again]&lt;/span&gt;
+&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh-copy-id user@openlab.umiacs.umd.edu
+&lt;span class="go"&gt;user@openlab.umiacs.umd.edu&amp;#39;s password:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now you can ssh to openlab without entering your password (depending on
+your OS, you may need to enter the passphrase for your ssh key, but you
+should only need to do this once).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh openlab.umiacs.umd.edu
+&lt;span class="gp"&gt;user@openlab.umiacs.umd.edu:~$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Proxy SSH through openlab&lt;/h4&gt;
+&lt;p&gt;To avoid manually ssh'ing through openlab.umiacs.umd.edu, you can automate
+the process with an ssh "ProxyCommand".  Add the following lines to your
+~/.ssh/config file on your remote computer (create it if it doesn't exist),
+repeated for each host you'd like to be able to ssh to directly.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;Host&lt;/span&gt; &lt;span class="n"&gt;lab&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pc&lt;/span&gt;
+  &lt;span class="n"&gt;Hostname&lt;/span&gt; &lt;span class="n"&gt;lab&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umiacs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;edu&lt;/span&gt;
+  &lt;span class="n"&gt;ForwardAgent&lt;/span&gt; &lt;span class="n"&gt;yes&lt;/span&gt;
+  &lt;span class="n"&gt;ProxyCommand&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;openlab&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umiacs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;edu&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Conclusion&lt;/h4&gt;
+&lt;p&gt;Once you follow the steps above, you can ssh into a lab machine with one
+command and no ssh passwords.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh lab-pc
+&lt;span class="gp"&gt;user@lab-pc.umiacs.umd.edu:~$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>

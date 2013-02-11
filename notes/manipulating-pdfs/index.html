@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Manipulating PDFs</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="http://umiacs.umd.edu/~marco/theme/css/marco.css" type="text/css" />
+    <link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Marco D. Adelfio Atom Feed" />
+    
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" media="all" href="http://umiacs.umd.edu/~marco/css/ie.css"/>
+  <script src="http://umiacs.umd.edu/~marco/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+  <!--[if lt IE 7]>
+  <link rel="stylesheet" type="text/css" media="all" href="http://umiacs.umd.edu/~marco/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+  <header id="banner">
+  <h1><a href="http://umiacs.umd.edu/~marco/">Marco D. Adelfio </a></h1>
+  <nav><ul>
+      <li><a href="http://umiacs.umd.edu/~marco/projects">Projects</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/publications">Publications</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/links">Links</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/about">About</a></li>
+        </ul></nav>
+  </header><!-- /#banner -->
+  <section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="bookmark"
+           title="Permalink to Manipulating PDFs">Manipulating PDFs</a></h1>
+          </header>
+
+    <div class="entry-content">
+      <h4>"PDF Jujitsu"</h4>
+<p>LaTeX files and their PDF document offspring can be obstinate beasts.  When
+you need to extract or combine parts of documents <em>at the page level</em>,
+sometimes it's easier to manipulate the output PDF rather than the source
+TeX.  Here are a couple of helper functions that I have in my <code>.bashrc</code> for
+this.</p>
+<div class="codehilite"><pre><span class="c"># source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf</span>
+<span class="k">function </span>pdfextract<span class="o">()</span>
+<span class="o">{</span>
+  <span class="c"># arguments:</span>
+  <span class="c">#   $1 is the first page of the range to extract</span>
+  <span class="c">#   $2 is the last page of the range to extract</span>
+  <span class="c">#   $3 is the input file</span>
+  <span class="c">#   output file will be named &quot;inputfile_pXX-pYY.pdf&quot;</span>
+  gs -sDEVICE<span class="o">=</span>pdfwrite -dNOPAUSE -dBATCH -dSAFER <span class="se">\</span>
+  -dFirstPage<span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span> -dLastPage<span class="o">=</span><span class="k">${</span><span class="nv">2</span><span class="k">}</span> <span class="se">\</span>
+  -sOutputFile<span class="o">=</span><span class="k">${</span><span class="nv">3</span><span class="p">%.pdf</span><span class="k">}</span>_p<span class="k">${</span><span class="nv">1</span><span class="k">}</span>-p<span class="k">${</span><span class="nv">2</span><span class="k">}</span>.pdf <span class="se">\</span>
+  <span class="k">${</span><span class="nv">3</span><span class="k">}</span>
+<span class="o">}</span>
+
+<span class="c"># by marco. complements pdfextract</span>
+<span class="k">function </span>pdfmerge<span class="o">()</span>
+<span class="o">{</span>
+  <span class="c"># arguments:</span>
+  <span class="c">#   $1 is the name of the output file</span>
+  <span class="c">#   $2+ are the names of the input files</span>
+  <span class="nv">OUT</span><span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span>
+  <span class="nb">shift</span>
+<span class="nb">  </span>gs -sDEVICE<span class="o">=</span>pdfwrite -dNOPAUSE -dBATCH -dSAFER <span class="se">\</span>
+  -sOutputFile<span class="o">=</span><span class="nv">$OUT</span> <span class="se">\</span>
+  <span class="nv">$@</span>  
+<span class="o">}</span>
+</pre></div>
+
+
+<h4>Examples</h4>
+<p>You can use <code>pdfextract</code> to extract pages 1-3 of a PDF:</p>
+<div class="codehilite"><pre><span class="gp">$</span> ls
+<span class="go">my-long-document.pdf</span>
+<span class="gp">$</span> pdfextract 1 3 ./my-long-document.pdf
+<span class="gp">$</span> ls
+<span class="go">my-long-document_p1-p3.pdf  my-long-document.pdf</span>
+</pre></div>
+
+
+<p>Or use <code>pdfmerge</code> to merge a cover letter, proposal, and CV into a single PDF:</p>
+<div class="codehilite"><pre><span class="gp">$</span> ls
+<span class="go">cover-letter.pdf  cv.pdf  proposal.pdf</span>
+<span class="gp">$</span> pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
+<span class="gp">$</span> ls
+<span class="go">cover-letter.pdf  cv.pdf  proposal.pdf  submission.pdf</span>
+</pre></div>
+      <footer class="post-info">
+        Posted:
+        <abbr class="published" title="2013-02-08T12:59:00">
+                Feb 08, 2013
+        </abbr>
+
+                
+</footer><!-- /.post-info -->    </div><!-- /.entry-content -->
+    
+  </article>
+</section>
+  <section id="extras" class="body">
+      </section><!-- /#extras -->
+
+  <footer id="contentinfo" class="body">
+    <!--address id="about" class="vcard body">
+    Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+    </address--><!-- /#about -->
+
+    <!--p>The theme is by <a
+      href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing
+      Magazine</a>, thanks!</p-->
+  </footer><!-- /#contentinfo -->
+
+</body>
+</html>

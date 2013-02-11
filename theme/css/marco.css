@@ -1,0 +1,150 @@
+@import url("main.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,700|Bree+Serif);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e6e6e6 url(../images/bg.png) repeat 0 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header#banner a:link, header#banner a:visited {
+  color: #900;
+  letter-spacing: 1px;
+}
+header#banner a:hover {color: #903;}
+header#banner h1 a:link, header#banner h1 a:visited {color: #222;}
+a:hover {text-decoration: underline;}
+
+header#banner {
+  position:fixed;
+  top: 40px;
+  left: 20px;
+  width: 250px;
+  padding: 20px 20px 0 0;
+  border-right: 1px solid #caa;
+  text-align: right;
+  font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif;
+}
+
+header#banner h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  letter-spacing: 1px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+header#banner h1 a {
+  font-size: 20px;
+}
+
+header#banner ul {
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+header#banner li {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+#banner nav li {
+  float: none;
+  display: block;
+}
+
+.body {
+  /*position:absolute;
+  left:310px;
+  top:40px;*/
+  position:relative;
+  min-height:150px;
+
+  width:600px;
+  margin-left: 291px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding:10px 20px 0px;
+  /*background: #fcfcfc;
+  box-shadow: 0px 2px 5px #aaa;
+  border-radius: 4px;
+  border: 1px solid #ddc;
+  margin-left: 310px;*/
+  color: #333;
+  text-align: left;
+}
+
+.body {
+  font: 13px 'Open Sans', sans-serif;
+}
+
+.body h1 { color:#999; }
+.body h1 a, .body h2 a, .body h3 a { color: #06F; }
+.body h1 a:visited, .body h2 a:visited, .body h3 a:visited { color: #63A; }
+
+.body h1 {font-size: 24px;}
+.body h2 {font-size: 22px;}
+.body h3 {font-size: 18px;}
+.body h4 {font-size: 16px;}
+
+.body h1, .body h2, .body h3, .body h4 {
+  font-family: 'Bree Serif', serif;
+  line-height: 1.6;
+  font-weight: normal;
+}
+
+.body h2, .body h3, .body h4 {margin-top: .6em;}
+
+.body pre {
+  font-size: 13px;
+  font-family: 'Ubuntu Mono', monospace;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+}
+
+.body code {
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 1px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.body li {
+  list-style-type: circle;
+}
+
+.body p {
+  margin: 6px 0;
+  line-height: 20px;
+}
+
+#extras {display: none;}
+#social {display: none;}
+#contentinfo {display: none;}
+
+.post-info {float: none; font-style:italic; color: #777; border-top: 1px solid #999;}
+.index-date {float: right; font-size: 12px; font-style:italic; border: none; margin:0; padding:0; line-height: 26px; font-weight: bold; color: #999;}
+.readmore {display: none;}
+
+
+.pubs {
+  text-align: justify;
+  word-spacing: 1px;
+}
+
+.pubs li {
+  margin-top: 10px;
+}
