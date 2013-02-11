@@ -14,5 +14,13 @@ DELETE_OUTPUT_DIRECTORY = True
 # Uncomment following line for absolute URLs in production:
 RELATIVE_URLS = False
 
+MENUITEMS = [
+    ('Projects', SITEURL + '/projects'),
+    ('Publications', SITEURL + '/publications'),
+    #('Notes', SITEURL + '/notes'),
+    ('Links', SITEURL + '/links'),
+    ('About', SITEURL + '/about')
+]
+
 #DISQUS_SITENAME = ""
 #GOOGLE_ANALYTICS = ""
