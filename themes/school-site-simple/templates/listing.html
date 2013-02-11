@@ -55,11 +55,11 @@
     {% endif %}
   {% endfor %}
 {% else %}
-<section id="content" class="body">
-<h2>Pages</h2>
+  <section id="content" class="body">
+    <h2>Pages</h2>
     {% for page in PAGES %}
-        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+      <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
     {% endfor %}
-</section>
+  </section>
 {% endif %}
 {% endblock content %}
