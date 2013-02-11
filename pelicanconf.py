@@ -9,7 +9,7 @@ TIMEZONE = 'US/Eastern'
 
 DEFAULT_LANG = u'en'
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = False
 
 # MDA
 THEME = 'themes/school-site-simple'
