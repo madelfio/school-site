@@ -5,4 +5,4 @@ Summary: Strategies for ranking data tables in search results
 Category: Research
 Status: draft
 
-This will be a post about ranking tables.
+...
