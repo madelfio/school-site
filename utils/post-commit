@@ -27,7 +27,7 @@ if [ "$(git symbolic-ref HEAD)" == "refs/heads/master" ]; then
   echo 'Got here d'
   GIT_WORK_TREE="$TEMP_DIR" git ls-files --deleted -z | xargs -0rt rm
   echo 'Got here e'
-  GIT_WORK_TREE="$TEMP_DIR" git commit -m "Generated HTML: $MESSAGE"
+  GIT_WORK_TREE="$TEMP_DIR" git commit --allow-empty -m "Generated HTML: $MESSAGE"
   echo 'Got here f'
   git checkout -- .
   echo 'Got here g'
