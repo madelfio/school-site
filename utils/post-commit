@@ -41,3 +41,5 @@ if [ "$(git symbolic-ref HEAD)" == "refs/heads/master" ]; then
   echo 'Got here i'
 
 fi
+
+exit 0
