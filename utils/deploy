@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh openlab 'cd /nfshomes/marco/.gitmirrors/school-site.git && git fetch && GIT_WORK_TREE=/fs/www-users/marco git checkout -f static -q'
