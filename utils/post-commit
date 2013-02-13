@@ -15,30 +15,30 @@ if [ "$(git symbolic-ref HEAD)" == "refs/heads/master" ]; then
   GHPIMPORT=/nfshomes/marco/.virtualenvs/ghpages/bin/ghp-import
   MESSAGE=$(git log -1 HEAD --pretty=format:%s)
 
-  echo 'Got here a'
+  #echo 'Got here a'
   git stash --keep-index -q
   $PELICAN ./content -o "$TEMP_DIR" -s ./publishconf.py
-  echo 'Got here b'
+  #echo 'Got here b'
 
   git checkout static
   unset GIT_INDEX_FILE
-  echo 'Got here c'
+  #echo 'Got here c'
   GIT_WORK_TREE="$TEMP_DIR" git add -A
-  echo 'Got here d'
+  #echo 'Got here d'
   GIT_WORK_TREE="$TEMP_DIR" git ls-files --deleted -z | xargs -0rt rm
-  echo 'Got here e'
+  #echo 'Got here e'
   GIT_WORK_TREE="$TEMP_DIR" git commit --allow-empty -m "Generated HTML: $MESSAGE"
-  echo 'Got here f'
+  #echo 'Got here f'
   git checkout -- .
-  echo 'Got here g'
+  #echo 'Got here g'
   git checkout master
   # $GHPIMPORT -b static "$TEMP_DIR"
-  echo 'Committed to static branch'
+  #echo 'Committed to static branch'
   if [ "$(git stash list -n 1 | wc -l)" == "1" ]; then
     git stash pop -q
-    echo 'Got here h'
+    #echo 'Got here h'
   fi
-  echo 'Got here i'
+  #echo 'Got here i'
 
 fi
 
