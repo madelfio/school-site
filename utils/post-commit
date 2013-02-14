@@ -1,45 +1,10 @@
 #!/bin/bash
 
-# This script generates the static HTML website from the source files in
-# the snapshot being committed.  The results are committed to the `static`
-# branch.
+./utils/generate-static
 
-set -e
-
-git symbolic-ref HEAD
-
-if [ "$(git symbolic-ref HEAD)" == "refs/heads/master" ]; then
-
-  TEMP_DIR=$(mktemp -d)
-  PELICAN=/nfshomes/marco/.virtualenvs/pelican/bin/pelican
-  GHPIMPORT=/nfshomes/marco/.virtualenvs/ghpages/bin/ghp-import
-  MESSAGE=$(git log -1 HEAD --pretty=format:%s)
-
-  #echo 'Got here a'
-  git stash --keep-index -q
-  $PELICAN ./content -o "$TEMP_DIR" -s ./publishconf.py
-  #echo 'Got here b'
-
-  git checkout static
-  unset GIT_INDEX_FILE
-  #echo 'Got here c'
-  GIT_WORK_TREE="$TEMP_DIR" git add -A
-  #echo 'Got here d'
-  GIT_WORK_TREE="$TEMP_DIR" git ls-files --deleted -z | xargs -0rt rm
-  #echo 'Got here e'
-  GIT_WORK_TREE="$TEMP_DIR" git commit --allow-empty -m "Generated HTML: $MESSAGE"
-  #echo 'Got here f'
-  git checkout -- .
-  #echo 'Got here g'
-  git checkout master
-  # $GHPIMPORT -b static "$TEMP_DIR"
-  #echo 'Committed to static branch'
-  if [ "$(git stash list -n 1 | wc -l)" == "1" ]; then
-    git stash pop -q
-    #echo 'Got here h'
-  fi
-  #echo 'Got here i'
-
+exec < /dev/tty
+read -p "Deploy to Github and UMIACS? [Y/n] " -r
+if [[ $REPLY =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+  ./utils/deploy
 fi
-
-exit 0
