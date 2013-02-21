@@ -89,7 +89,7 @@ header#banner li {
 
 .body h1 { color:#999; }
 .body h1 a, .body h2 a, .body h3 a { color: #06F; }
-.body h1 a:visited, .body h2 a:visited, .body h3 a:visited { color: #63A; }
+.body h1 a:visited, .body h2 a:visited, .body h3 a:visited { color: #54C; }
 
 .body h1 {font-size: 24px;}
 .body h2 {font-size: 22px;}
@@ -105,7 +105,7 @@ header#banner li {
 .body h2, .body h3, .body h4 {margin-top: .6em;}
 
 .body pre {
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'Ubuntu Mono', monospace;
   margin: 10px;
   padding: 5px;
