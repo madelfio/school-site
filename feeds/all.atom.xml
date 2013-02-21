@@ -1,5 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-14T15:24:00-05:00</updated><entry><title>Use cases for tables</title><link href="http://umiacs.umd.edu/~marco/notes/use-cases-for-tables" rel="alternate"></link><updated>2013-02-14T15:24:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-14:notes/use-cases-for-tables</id><summary type="html">&lt;h4&gt;Spreadsheets&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-20T16:50:00-05:00</updated><entry><title>Writing Bibliographies for Academic Papers</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;h3&gt;My Personal Bibliography Style Guide&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;This is how we do it in our lab.&lt;/li&gt;
+&lt;li&gt;Everything in the context of LaTeX/BibTeX.&lt;/li&gt;
+&lt;li&gt;Different kinds of sources:&lt;ul&gt;
+&lt;li&gt;Conference Proceedings&lt;/li&gt;
+&lt;li&gt;Journals&lt;/li&gt;
+&lt;li&gt;Web pages&lt;/li&gt;
+&lt;li&gt;Online articles&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Gather Source Information&lt;/h3&gt;
+&lt;p&gt;To write a bibliography for a paper, first ensure you have some kind of
+pointer to all the sources you consulted in writing.  Some popular sources of
+bibliographic information are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://dl.acm.org/"&gt;ACM Digital Library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.informatik.uni-trier.de/~ley/db/"&gt;DBLP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://scholar.google.com/"&gt;Google Scholar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Collect bibtex entries into single file&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.bibtex.org/"&gt;BibTeX&lt;/a&gt; looks like this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@misc&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Anon06&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;Nobody Anonymous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;My Article&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;2006&amp;quot;&lt;/span&gt; 
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this example, &lt;code&gt;@misc&lt;/code&gt; is the entry type, &lt;code&gt;Anon06&lt;/code&gt; is the reference key
+(used to reference the source from within the LaTeX document), and
+&lt;code&gt;author&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt;, and &lt;code&gt;year&lt;/code&gt; are source attributes, set to the quoted
+values.  Depending on the entry type and the bibliography style used in a
+LaTeX file, different attributes will be included in the generated
+bibliography text.&lt;/p&gt;
+&lt;h3&gt;Bibliography Entry Types&lt;/h3&gt;
+&lt;p&gt;The most common entry types in my bibliographies are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@article&lt;/code&gt; (an article published in a journal)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@book&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@inproceedings&lt;/code&gt; (a conference paper)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@misc&lt;/code&gt; (URL, other publication)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And occasionally:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@techreport&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@phdthesis&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@mastersthesis&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@manual&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I use the &lt;code&gt;crossref&lt;/code&gt; attribute of &lt;code&gt;@inproceedings&lt;/code&gt; to reference:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;@proceedings&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Conference papers&lt;/h4&gt;
+&lt;p&gt;Standard attributes:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@inproceedings&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Same08&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Hanan Samet and Jagan Sankaranarayanan and Houman Alborzi&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Scalable network distance browsing in spatial databases&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;booktitle&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD Conference&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;pages&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;43-54&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;crossref&lt;/span&gt;  = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD08&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kd"&gt;@proceedings&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;SIGMOD08&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;booktitle&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD &amp;#39;08&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;address&lt;/span&gt;   = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Vancouver, Canada&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Notes&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.lsv.ens-cachan.fr/~markey/BibTeX/doc/ttb_en.pdf"&gt;&lt;em&gt;"Taming the Beast"&lt;/em&gt;&lt;/a&gt; is a good reference for all things BibTeX.  Look
+there for tips on BibTeX syntax, how to deal with foreign or non-standard
+author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
+&lt;p&gt;BibTeX syntax highlighting on this page is done using
+&lt;a href="http://www.github.com/madelfio/bibtex-pygments-lexer"&gt;bibtex-pygments-lexer&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Things I should know</title><link href="http://umiacs.umd.edu/~marco/notes/things-i-should-know" rel="alternate"></link><updated>2013-02-15T00:00:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-15:notes/things-i-should-know</id><summary type="html">&lt;h1&gt;Computer Science&lt;/h1&gt;
+&lt;p&gt;A set of questions to review before interviews.&lt;/p&gt;
+&lt;h4&gt;Databases&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;What is ACID?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Web&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;What's the difference between HTTP GET and HTTP POST?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Algorithms&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Write pseudocode for:&lt;ul&gt;
+&lt;li&gt;Mergesort&lt;/li&gt;
+&lt;li&gt;Quicksort&lt;/li&gt;
+&lt;li&gt;Radix sort&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Computational Geometry &amp;amp; Spatial Data&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;What's the complexity of finding the convex hull of a set of points in 2D?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Geography&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;All country locations&lt;/li&gt;
+&lt;li&gt;All country capitals&lt;/li&gt;
+&lt;li&gt;All state capitals&lt;/li&gt;
+&lt;li&gt;Major seas, rivers, mountain ranges&lt;/li&gt;
+&lt;li&gt;Country flags&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Other Categories&lt;/h2&gt;
+&lt;p&gt;Should add questions about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Business&lt;ul&gt;
+&lt;li&gt;Top 10 companies by market cap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Politics&lt;ul&gt;
+&lt;li&gt;Who is in G8/G20?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ideas for quiz site&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow user to mark question as "Not interesting/relevant to me"&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="draft"></category></entry><entry><title>Use cases for tables</title><link href="http://umiacs.umd.edu/~marco/notes/use-cases-for-tables" rel="alternate"></link><updated>2013-02-14T15:24:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-14:notes/use-cases-for-tables</id><summary type="html">&lt;h4&gt;Spreadsheets&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://davidmichaelross.com/blog/microsoft-excel-is-everywhere/"&gt;Sorry, Geeks, Microsoft Excel is Everywhere&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary></entry><entry><title>Writing Resources</title><link href="http://umiacs.umd.edu/~marco/notes/writing-resources" rel="alternate"></link><updated>2013-02-13T19:17:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-13:notes/writing-resources</id><summary type="html">&lt;h4&gt;Dissertations&lt;/h4&gt;
