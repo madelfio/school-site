@@ -62,6 +62,10 @@ header#banner li {
   display: block;
 }
 
+#extras {display: none;}
+#social {display: none;}
+#contentinfo {display: none;}
+
 .body {
   /*position:absolute;
   left:310px;
@@ -131,14 +135,13 @@ header#banner li {
   line-height: 20px;
 }
 
-#extras {display: none;}
-#social {display: none;}
-#contentinfo {display: none;}
+.body ul {
+  margin: 1em 0 1em 1.5em;
+}
 
 .post-info {float: none; font-style:italic; color: #777; border-top: 1px solid #999;}
 .index-date {float: right; font-size: 12px; font-style:italic; border: none; margin:0; padding:0; line-height: 26px; font-weight: bold; color: #999;}
 .readmore {display: none;}
-
 
 .pubs {
   text-align: justify;
@@ -147,4 +150,26 @@ header#banner li {
 
 .pubs li {
   margin-top: 10px;
+}
+
+.entry-header .entry-title, .entry-header .entry-subtitle {
+  line-height: 1.1;
+  margin:0;
+}
+
+.entry-header .entry-subtitle {
+  color:#999;
+}
+
+.entry-header {
+  margin-bottom:20px;
+}
+
+.body span.hl {
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.body span.hl-todo {
+  background-color: tomato;
 }

@@ -1,10 +1,9 @@
 Title: SSH Tips
+Subtitle: Tips for SSH'ing around the lab machines
 Date: 2013-02-07 23:47
 Author: Marco D. Adelfio
 Summary: Tips for SSH'ing around the lab machines.
 Category: Notes
-
-### Tips for SSH'ing around the lab machines
 
 The lab machines do not have public IP addresses by default.
 
@@ -34,7 +33,7 @@ But this is tedious because you have to go through openlab and enter your
 password twice.  Remote access to the lab machines would be much more
 convenient if you could avoid these two hassles.
 
-#### Generate SSH key
+## Generate SSH key
 
 To avoid entering a password every time, you can create an ssh key.  There
 are many guides on this, like [this one from github][1].
@@ -58,7 +57,7 @@ should only need to do this once).
     user@home-pc:~$ ssh openlab.umiacs.umd.edu
     user@openlab.umiacs.umd.edu:~$
 
-#### Proxy SSH through openlab
+## Proxy SSH through openlab
 
 To avoid manually ssh'ing through openlab.umiacs.umd.edu, you can automate
 the process with an ssh "ProxyCommand".  Add the following lines to your
@@ -70,7 +69,7 @@ repeated for each host you'd like to be able to ssh to directly.
       ForwardAgent yes
       ProxyCommand ssh openlab.umiacs.umd.edu nc %h %p
 
-#### Conclusion
+## Conclusion
 
 Once you follow the steps above, you can ssh into a lab machine with one
 command and no ssh passwords.
