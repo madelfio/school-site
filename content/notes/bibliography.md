@@ -1,6 +1,7 @@
-Title: Writing Bibliographies for Academic Papers
+Title: BibTeX Style Guidelines
+Subtitle: My Personal Bibliography Style Guide
 Date: 2013-02-20 16:50
-Summary: Tips and tricks for gathering, writing, and formatting bibliographies.
+Summary: Tips and tricks for collecting and formatting bibliographies.
 Slug: bib-style
 Category: Notes
 

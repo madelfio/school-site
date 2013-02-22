@@ -1,9 +1,9 @@
 Title: Manipulating PDFs
+Subtitle: "PDF Jujitsu"
 Date: 2013-02-08 12:59
 Summary: LaTeX files and their PDF-document offspring can be obstinate beasts.  When you need to extract or combine parts of documents at the page level, sometimes it's easier to manipulate the output PDF rather than the source TeX.  Here are a couple of helper functions that I have in my .bashrc for this.
 Category: Notes
 
-####"PDF Jujitsu"
 
 LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents *at the page level*,

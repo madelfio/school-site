@@ -148,3 +148,16 @@ header#banner li {
 .pubs li {
   margin-top: 10px;
 }
+
+.entry-header .entry-title, .entry-header .entry-subtitle {
+  line-height: 1.1;
+  margin:0;
+}
+
+.entry-header .entry-subtitle {
+  color:#999;
+}
+
+.entry-header {
+  margin-bottom:20px;
+}
