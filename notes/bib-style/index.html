@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Writing Bibliographies for Academic Papers</title>
+  <title>BibTeX Style Guidelines</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="http://umiacs.umd.edu/~marco/theme/css/marco.css" type="text/css" />
     <link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Marco D. Adelfio Atom Feed" />
@@ -30,93 +30,176 @@
   </header><!-- /#banner -->
   <section id="content" class="body">
   <article>
-    <header>
+    <header class="entry-header">
       <h1 class="entry-title">
         <a href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="bookmark"
-           title="Permalink to Writing Bibliographies for Academic Papers">Writing Bibliographies for Academic Papers</a></h1>
-          </header>
+           title="Permalink to BibTeX Style Guidelines">BibTeX Style Guidelines</a></h1>
+              <h3 class="entry-subtitle">My Personal Bibliography Style Guide</h3>
+                 </header>
 
     <div class="entry-content">
-      <h3>My Personal Bibliography Style Guide</h3>
-<ul>
-<li>This is how we do it in our lab.</li>
-<li>Everything in the context of LaTeX/BibTeX.</li>
-<li>Different kinds of sources:<ul>
-<li>Conference Proceedings</li>
-<li>Journals</li>
-<li>Web pages</li>
-<li>Online articles</li>
-</ul>
-</li>
-</ul>
-<h3>Gather Source Information</h3>
-<p>To write a bibliography for a paper, first ensure you have some kind of
-pointer to all the sources you consulted in writing.  Some popular sources of
-bibliographic information are:</p>
+      <style>
+  .body code {
+    border:none;
+    background:none;
+    font-size:inherit;
+  }
+  .body strong code {
+    font-size: 14px;
+  }
+</style>
+
+<div>
+
+<p>I generally follow the guidelines below when I put together bibliographies.</p>
+<p>The most important objective is to be consistent.  If one reference uses
+<em>"New York, NY, USA"</em> as the location of a conference, don't use <em>"New
+York, USA"</em> for another reference.  Or if one reference uses <em>"Proceedings
+of the SIGSPATIAL 2012 International Conference on Advances in Geographic
+Information Systems"</em> as the title of conference proceedings, don't use
+<em>"VLDB 2011"</em> for another.  Conference papers should have the same fields
+and formats as other conference papers, and ditto for journal articles,
+books, online resources, etc.</p>
+<h2>Gather Source Information</h2>
+<p>To write a bibliography for a paper, first ensure you have the important
+bibliographic details for the sources you consulted.  Some popular sources
+of bibliographic information are:</p>
 <ul>
 <li><a href="http://dl.acm.org/">ACM Digital Library</a></li>
 <li><a href="http://www.informatik.uni-trier.de/~ley/db/">DBLP</a></li>
 <li><a href="http://scholar.google.com/">Google Scholar</a></li>
 </ul>
-<h3>Collect bibtex entries into single file</h3>
+<p>Unfortunately, if you sample references from these sources, it becomes
+obvious that each uses a different format, with different fields for their
+references.  And since they are not curated by hand, even multiple
+references from the same source may be inconsistent.  So the references
+must be standardized after the details are pulled.</p>
 <p><a href="http://www.bibtex.org/">BibTeX</a> looks like this:</p>
-<div class="codehilite"><pre><span class="kd">@misc</span><span class="p">{</span><span class="nl">Anon06</span><span class="p">,</span>
-  <span class="na">author</span> = <span class="s2">&quot;Nobody Anonymous&quot;</span><span class="p">,</span>
-  <span class="na">title</span> = <span class="s2">&quot;My Article&quot;</span><span class="p">,</span>
+<div class="codehilite"><pre><span class="kd">@book</span><span class="p">{</span><span class="nl">Anon06</span><span class="p">,</span>
+  <span class="na">author</span> = <span class="s2">&quot;Nobody J. Anonymous&quot;</span><span class="p">,</span>
+  <span class="na">title</span> = <span class="s2">&quot;My Book&quot;</span><span class="p">,</span>
   <span class="na">year</span> = <span class="s2">&quot;2006&quot;</span> 
 <span class="p">}</span>
 </pre></div>
 
 
-<p>In this example, <code>@misc</code> is the entry type, <code>Anon06</code> is the reference key
-(used to reference the source from within the LaTeX document), and
-<code>author</code>, <code>title</code>, and <code>year</code> are source attributes, set to the quoted
-values.  Depending on the entry type and the bibliography style used in a
-LaTeX file, different attributes will be included in the generated
+<p>For this entry, <strong><code>@book</code></strong> is the entry type, <strong><code>Anon06</code></strong> is the
+reference key (used to reference the source from LaTeX files), and
+<strong><code>author</code></strong>, <strong><code>title</code></strong>, and <strong><code>year</code></strong> are source attributes, set to the
+quoted values.  Depending on the entry type and the bibliography style used
+in a LaTeX file, different attributes will be included in the generated
 bibliography text.</p>
-<h3>Bibliography Entry Types</h3>
-<p>The most common entry types in my bibliographies are:</p>
-<ul>
-<li><code>@article</code> (an article published in a journal)</li>
-<li><code>@book</code></li>
-<li><code>@inproceedings</code> (a conference paper)</li>
-<li><code>@misc</code> (URL, other publication)</li>
-</ul>
-<p>And occasionally:</p>
-<ul>
-<li><code>@techreport</code></li>
-<li><code>@phdthesis</code></li>
-<li><code>@mastersthesis</code></li>
-<li><code>@manual</code></li>
-</ul>
-<p>I use the <code>crossref</code> attribute of <code>@inproceedings</code> to reference:</p>
-<ul>
-<li><code>@proceedings</code></li>
-</ul>
+<h2>Bibliography Entry Types</h2>
+<p><style>
+  #entry-types {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+    background-color: #f6f6f6;
+    margin:20px 10px;
+    width:350px;
+  }
+  #entry-types .sec {
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    background-color: #DDD;
+  }
+  #entry-types td {padding:1px;}
+</style></p>
+<p><table id="entry-types">
+  <tr class="sec"><td colspan="2"><strong><em>Common</em></strong></td></tr>
+  <tr><td><code>@article</code></td><td>an article published in a journal</td></tr>
+  <tr><td><code>@book</code></td><td></td></tr>
+  <tr><td><code>@inproceedings</code></td><td>a paper presented at a conference</td></tr>
+  <tr><td><code>@misc</code></td><td>URL, other publication</td></tr>
+  <tr class="sec"><td colspan="2"><strong><em>Less Frequent</em></strong></td></tr>
+  <tr><td><code>@techreport</code></td><td></td></tr>
+  <tr><td><code>@phdthesis</code></td><td></td></tr>
+  <tr><td><code>@mastersthesis</code></td><td></td></tr>
+  <tr><td><code>@manual</code></td><td></td></tr>
+  <tr class="sec"><td colspan="2"><strong><em>Used with crossref attribute</em></strong></td></tr>
+  <tr><td><code>@proceedings</code></td><td></td></tr>
+</table></p>
+<h2>Formatting BibTeX Entries</h2>
+<p><strong>Reference Keys</strong> - Use up to four letters of the last name, followed by
+the two-digit publication year, followed by a disambiguating letter when
+necessary (for multiple works by the same author in the same year).
+Capitalization of reference keys doesn't matter to BibTeX, but I
+capitalize only the first letter of the last name for consistency.</p>
+<div class="codehilite"><pre>- Adel11
+- Li08
+- Same12
+- Same12b
+- Same12c
+</pre></div>
+
+
+<p><strong>Authors</strong> - Multiple authors should be separated by the word "and".  Full
+first names should be included (rather than only the first initial), which
+a bibliography style can abbreviate if necessary.  Either "Last, First" or
+"First Last" may be used.</p>
+<p><strong>Titles</strong> - Ensure that acronyms and words that require capitalization are
+placed within an extra pair of braces.  Otherwise they will be converted to
+lower case.</p>
+<div class="codehilite"><pre><span class="p">{{</span><span class="n">UNIX</span><span class="p">}</span> <span class="n">Network</span> <span class="n">Programming</span><span class="o">:</span> <span class="n">The</span> <span class="n">Sockets</span> <span class="n">Networking</span> <span class="p">{</span><span class="n">API</span><span class="p">}}</span>
+</pre></div>
+
+
+<p><strong>Book Titles</strong> - Many bibtex sources provide long titles for conferences
+and journals.  However, there is a trend towards shorter citation names,
+possibly due to the Internet </p>
+<p><span class="hl hl-todo">Todo:</span> Document additional attributes
+(<strong>Pages</strong>, <strong>Address</strong>, <strong>Crossref</strong>, <strong>Journal</strong>, <strong>Month</strong>, <strong>Note</strong>,
+<strong>Volume/Number</strong>, <strong>Year</strong>)</p>
+<h2>Which Fields Do I Need?</h2>
 <h4>Conference papers</h4>
-<p>Standard attributes:</p>
 <div class="codehilite"><pre><span class="kd">@inproceedings</span><span class="p">{</span><span class="nl">Same08</span><span class="p">,</span>
   <span class="na">author</span>    = <span class="p">{</span><span class="s2">Hanan Samet and Jagan Sankaranarayanan and Houman Alborzi</span><span class="p">},</span>
   <span class="na">title</span>     = <span class="p">{</span><span class="s2">Scalable network distance browsing in spatial databases</span><span class="p">},</span>
-  <span class="na">booktitle</span> = <span class="p">{</span><span class="s2">SIGMOD Conference</span><span class="p">},</span>
-  <span class="na">year</span>      = <span class="p">{</span><span class="s2">2008</span><span class="p">},</span>
   <span class="na">pages</span>     = <span class="p">{</span><span class="s2">43-54</span><span class="p">},</span>
   <span class="na">crossref</span>  = <span class="p">{</span><span class="s2">SIGMOD08</span><span class="p">},</span>
 <span class="p">}</span>
 <span class="kd">@proceedings</span><span class="p">{</span><span class="nl">SIGMOD08</span><span class="p">,</span>
-  <span class="na">booktitle</span> = <span class="p">{</span><span class="s2">SIGMOD &#39;08</span><span class="p">},</span>
-  <span class="na">year</span>      = <span class="p">{</span><span class="s2">2008</span><span class="p">},</span>
+  <span class="na">booktitle</span> = <span class="p">{</span><span class="s2">SIGMOD~&#39;08</span><span class="p">},</span>
   <span class="na">address</span>   = <span class="p">{</span><span class="s2">Vancouver, Canada</span><span class="p">},</span>
+  <span class="na">month</span>     = june<span class="p">,</span>
+  <span class="na">year</span>      = <span class="p">{</span><span class="s2">2008</span><span class="p">},</span>
 <span class="p">}</span>
 </pre></div>
 
 
+<h4>Journal articles</h4>
+<div class="codehilite"><pre><span class="kd">@article</span><span class="p">{</span><span class="nl">Cafa11</span><span class="p">,</span>
+  <span class="na">author</span>    = <span class="p">{</span><span class="s2">Michael J. Cafarella and Alon Y. Halevy and Jayant Madhavan</span><span class="p">},</span>
+  <span class="na">title</span>     = <span class="p">{</span><span class="s2">Structured data on the web</span><span class="p">},</span>
+  <span class="na">journal</span>   = <span class="p">{</span><span class="s2">Communications of the ACM</span><span class="p">},</span>
+  <span class="na">volume</span>    = <span class="p">{</span><span class="s2">54</span><span class="p">},</span>
+  <span class="na">number</span>    = <span class="p">{</span><span class="s2">2</span><span class="p">},</span>
+  <span class="na">year</span>      = <span class="p">{</span><span class="s2">2011</span><span class="p">},</span>
+  <span class="na">pages</span>     = <span class="p">{</span><span class="s2">72-79</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4>Books</h4>
+<div class="codehilite"><pre><span class="kd">@book</span><span class="p">{</span><span class="nl">Same06</span><span class="p">,</span>
+  <span class="na">author</span>    = <span class="p">{</span><span class="s2">Hanan Samet</span><span class="p">},</span>
+  <span class="na">title</span>     = <span class="p">{</span><span class="s2">Foundations of multidimensional and metric data structures</span><span class="p">},</span>
+  <span class="na">year</span>      = <span class="p">{</span><span class="s2">2006</span><span class="p">},</span>
+  <span class="na">publisher</span> = <span class="p">{</span><span class="s2">Morgan Kaufmann</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><span class="hl hl-todo">Todo:</span> Add examples for <strong>Websites</strong>,
+<strong>Online Manuals</strong>,</p>
 <h3>Notes</h3>
-<p><a href="http://www.lsv.ens-cachan.fr/~markey/BibTeX/doc/ttb_en.pdf"><em>"Taming the Beast"</em></a> is a good reference for all things BibTeX.  Look
+<p><a href="http://www.lsv.ens-cachan.fr/~markey/BibTeX/doc/ttb_en.pdf">"Taming the Beast"</a> is a good reference for all things BibTeX.  Look
 there for tips on BibTeX syntax, how to deal with foreign or non-standard
 author names, non-ASCII characters, and other useful tricks.</p>
 <p>BibTeX syntax highlighting on this page is done using
 <a href="http://www.github.com/madelfio/bibtex-pygments-lexer">bibtex-pygments-lexer</a>.</p>
+</div>
       <footer class="post-info">
         Posted:
         <abbr class="published" title="2013-02-20T16:50:00">

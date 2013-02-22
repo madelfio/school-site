@@ -1,84 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/Notes.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-20T16:50:00-05:00</updated><entry><title>Writing Bibliographies for Academic Papers</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;h3&gt;My Personal Bibliography Style Guide&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;This is how we do it in our lab.&lt;/li&gt;
-&lt;li&gt;Everything in the context of LaTeX/BibTeX.&lt;/li&gt;
-&lt;li&gt;Different kinds of sources:&lt;ul&gt;
-&lt;li&gt;Conference Proceedings&lt;/li&gt;
-&lt;li&gt;Journals&lt;/li&gt;
-&lt;li&gt;Web pages&lt;/li&gt;
-&lt;li&gt;Online articles&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Gather Source Information&lt;/h3&gt;
-&lt;p&gt;To write a bibliography for a paper, first ensure you have some kind of
-pointer to all the sources you consulted in writing.  Some popular sources of
-bibliographic information are:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/Notes.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-20T16:50:00-05:00</updated><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
+  .body code {
+    border:none;
+    background:none;
+    font-size:inherit;
+  }
+  .body strong code {
+    font-size: 14px;
+  }
+&lt;/style&gt;
+
+&lt;div&gt;
+
+&lt;p&gt;I generally follow the guidelines below when I put together bibliographies.&lt;/p&gt;
+&lt;p&gt;The most important objective is to be consistent.  If one reference uses
+&lt;em&gt;"New York, NY, USA"&lt;/em&gt; as the location of a conference, don't use &lt;em&gt;"New
+York, USA"&lt;/em&gt; for another reference.  Or if one reference uses &lt;em&gt;"Proceedings
+of the SIGSPATIAL 2012 International Conference on Advances in Geographic
+Information Systems"&lt;/em&gt; as the title of conference proceedings, don't use
+&lt;em&gt;"VLDB 2011"&lt;/em&gt; for another.  Conference papers should have the same fields
+and formats as other conference papers, and ditto for journal articles,
+books, online resources, etc.&lt;/p&gt;
+&lt;h2&gt;Gather Source Information&lt;/h2&gt;
+&lt;p&gt;To write a bibliography for a paper, first ensure you have the important
+bibliographic details for the sources you consulted.  Some popular sources
+of bibliographic information are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://dl.acm.org/"&gt;ACM Digital Library&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.informatik.uni-trier.de/~ley/db/"&gt;DBLP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://scholar.google.com/"&gt;Google Scholar&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Collect bibtex entries into single file&lt;/h3&gt;
+&lt;p&gt;Unfortunately, if you sample references from these sources, it becomes
+obvious that each uses a different format, with different fields for their
+references.  And since they are not curated by hand, even multiple
+references from the same source may be inconsistent.  So the references
+must be standardized after the details are pulled.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.bibtex.org/"&gt;BibTeX&lt;/a&gt; looks like this:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@misc&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Anon06&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-  &lt;span class="na"&gt;author&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;Nobody Anonymous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-  &lt;span class="na"&gt;title&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;My Article&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@book&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Anon06&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;Nobody J. Anonymous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;My Book&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="na"&gt;year&lt;/span&gt; = &lt;span class="s2"&gt;&amp;quot;2006&amp;quot;&lt;/span&gt; 
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;In this example, &lt;code&gt;@misc&lt;/code&gt; is the entry type, &lt;code&gt;Anon06&lt;/code&gt; is the reference key
-(used to reference the source from within the LaTeX document), and
-&lt;code&gt;author&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt;, and &lt;code&gt;year&lt;/code&gt; are source attributes, set to the quoted
-values.  Depending on the entry type and the bibliography style used in a
-LaTeX file, different attributes will be included in the generated
+&lt;p&gt;For this entry, &lt;strong&gt;&lt;code&gt;@book&lt;/code&gt;&lt;/strong&gt; is the entry type, &lt;strong&gt;&lt;code&gt;Anon06&lt;/code&gt;&lt;/strong&gt; is the
+reference key (used to reference the source from LaTeX files), and
+&lt;strong&gt;&lt;code&gt;author&lt;/code&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;code&gt;title&lt;/code&gt;&lt;/strong&gt;, and &lt;strong&gt;&lt;code&gt;year&lt;/code&gt;&lt;/strong&gt; are source attributes, set to the
+quoted values.  Depending on the entry type and the bibliography style used
+in a LaTeX file, different attributes will be included in the generated
 bibliography text.&lt;/p&gt;
-&lt;h3&gt;Bibliography Entry Types&lt;/h3&gt;
-&lt;p&gt;The most common entry types in my bibliographies are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@article&lt;/code&gt; (an article published in a journal)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@book&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@inproceedings&lt;/code&gt; (a conference paper)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@misc&lt;/code&gt; (URL, other publication)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And occasionally:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@techreport&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@phdthesis&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@mastersthesis&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@manual&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I use the &lt;code&gt;crossref&lt;/code&gt; attribute of &lt;code&gt;@inproceedings&lt;/code&gt; to reference:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;@proceedings&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2&gt;Bibliography Entry Types&lt;/h2&gt;
+&lt;p&gt;&lt;style&gt;
+  #entry-types {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+    background-color: #f6f6f6;
+    margin:20px 10px;
+    width:350px;
+  }
+  #entry-types .sec {
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid #ccc;
+    background-color: #DDD;
+  }
+  #entry-types td {padding:1px;}
+&lt;/style&gt;&lt;/p&gt;
+&lt;p&gt;&lt;table id="entry-types"&gt;
+  &lt;tr class="sec"&gt;&lt;td colspan="2"&gt;&lt;strong&gt;&lt;em&gt;Common&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@article&lt;/code&gt;&lt;/td&gt;&lt;td&gt;an article published in a journal&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@book&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@inproceedings&lt;/code&gt;&lt;/td&gt;&lt;td&gt;a paper presented at a conference&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@misc&lt;/code&gt;&lt;/td&gt;&lt;td&gt;URL, other publication&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="sec"&gt;&lt;td colspan="2"&gt;&lt;strong&gt;&lt;em&gt;Less Frequent&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@techreport&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@phdthesis&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@mastersthesis&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@manual&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="sec"&gt;&lt;td colspan="2"&gt;&lt;strong&gt;&lt;em&gt;Used with crossref attribute&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;code&gt;@proceedings&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;h2&gt;Formatting BibTeX Entries&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Reference Keys&lt;/strong&gt; - Use up to four letters of the last name, followed by
+the two-digit publication year, followed by a disambiguating letter when
+necessary (for multiple works by the same author in the same year).
+Capitalization of reference keys doesn't matter to BibTeX, but I
+capitalize only the first letter of the last name for consistency.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;- Adel11
+- Li08
+- Same12
+- Same12b
+- Same12c
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Authors&lt;/strong&gt; - Multiple authors should be separated by the word "and".  Full
+first names should be included (rather than only the first initial), which
+a bibliography style can abbreviate if necessary.  Either "Last, First" or
+"First Last" may be used.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Titles&lt;/strong&gt; - Ensure that acronyms and words that require capitalization are
+placed within an extra pair of braces.  Otherwise they will be converted to
+lower case.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="n"&gt;UNIX&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;Network&lt;/span&gt; &lt;span class="n"&gt;Programming&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;Sockets&lt;/span&gt; &lt;span class="n"&gt;Networking&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;API&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Book Titles&lt;/strong&gt; - Many bibtex sources provide long titles for conferences
+and journals.  However, there is a trend towards shorter citation names,
+possibly due to the Internet &lt;/p&gt;
+&lt;p&gt;&lt;span class="hl hl-todo"&gt;Todo:&lt;/span&gt; Document additional attributes
+(&lt;strong&gt;Pages&lt;/strong&gt;, &lt;strong&gt;Address&lt;/strong&gt;, &lt;strong&gt;Crossref&lt;/strong&gt;, &lt;strong&gt;Journal&lt;/strong&gt;, &lt;strong&gt;Month&lt;/strong&gt;, &lt;strong&gt;Note&lt;/strong&gt;,
+&lt;strong&gt;Volume/Number&lt;/strong&gt;, &lt;strong&gt;Year&lt;/strong&gt;)&lt;/p&gt;
+&lt;h2&gt;Which Fields Do I Need?&lt;/h2&gt;
 &lt;h4&gt;Conference papers&lt;/h4&gt;
-&lt;p&gt;Standard attributes:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@inproceedings&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Same08&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
   &lt;span class="na"&gt;author&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Hanan Samet and Jagan Sankaranarayanan and Houman Alborzi&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
   &lt;span class="na"&gt;title&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Scalable network distance browsing in spatial databases&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-  &lt;span class="na"&gt;booktitle&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD Conference&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
   &lt;span class="na"&gt;pages&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;43-54&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
   &lt;span class="na"&gt;crossref&lt;/span&gt;  = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD08&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="kd"&gt;@proceedings&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;SIGMOD08&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-  &lt;span class="na"&gt;booktitle&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD &amp;#39;08&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;booktitle&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;SIGMOD~&amp;#39;08&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
   &lt;span class="na"&gt;address&lt;/span&gt;   = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Vancouver, Canada&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;month&lt;/span&gt;     = june&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2008&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h4&gt;Journal articles&lt;/h4&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@article&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Cafa11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Michael J. Cafarella and Alon Y. Halevy and Jayant Madhavan&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Structured data on the web&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;journal&lt;/span&gt;   = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Communications of the ACM&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;volume&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;54&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;number&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2011&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;pages&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;72-79&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Books&lt;/h4&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;@book&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;Same06&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt;    = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Hanan Samet&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt;     = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Foundations of multidimensional and metric data structures&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;      = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;2006&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+  &lt;span class="na"&gt;publisher&lt;/span&gt; = &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;Morgan Kaufmann&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;span class="hl hl-todo"&gt;Todo:&lt;/span&gt; Add examples for &lt;strong&gt;Websites&lt;/strong&gt;,
+&lt;strong&gt;Online Manuals&lt;/strong&gt;,&lt;/p&gt;
 &lt;h3&gt;Notes&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://www.lsv.ens-cachan.fr/~markey/BibTeX/doc/ttb_en.pdf"&gt;&lt;em&gt;"Taming the Beast"&lt;/em&gt;&lt;/a&gt; is a good reference for all things BibTeX.  Look
+&lt;p&gt;&lt;a href="http://www.lsv.ens-cachan.fr/~markey/BibTeX/doc/ttb_en.pdf"&gt;"Taming the Beast"&lt;/a&gt; is a good reference for all things BibTeX.  Look
 there for tips on BibTeX syntax, how to deal with foreign or non-standard
 author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 &lt;p&gt;BibTeX syntax highlighting on this page is done using
-&lt;a href="http://www.github.com/madelfio/bibtex-pygments-lexer"&gt;bibtex-pygments-lexer&lt;/a&gt;.&lt;/p&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
+&lt;a href="http://www.github.com/madelfio/bibtex-pygments-lexer"&gt;bibtex-pygments-lexer&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; file example.png
 &lt;span class="gp"&gt;$&lt;/span&gt; identify example.png  &lt;span class="c"&gt;# (also works with jpegs)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -88,8 +170,7 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png  &lt;span class="c"&gt;# resize to 200x200 pixels&lt;/span&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png  &lt;span class="c"&gt;# resize width to 200, preserving aspect ratio&lt;/span&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png  &lt;span class="c"&gt;# resize height to 200, preserving aspect ratio&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;h4&gt;"PDF Jujitsu"&lt;/h4&gt;
-&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for
@@ -139,8 +220,7 @@ this.&lt;/p&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
 &lt;span class="gp"&gt;$&lt;/span&gt; ls
 &lt;span class="go"&gt;cover-letter.pdf  cv.pdf  proposal.pdf  submission.pdf&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;h3&gt;Tips for SSH'ing around the lab machines&lt;/h3&gt;
-&lt;p&gt;The lab machines do not have public IP addresses by default.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;p&gt;The lab machines do not have public IP addresses by default.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; host lab-pc.umiacs.umd.edu
 &lt;span class="go"&gt;lab-pc.umiacs.umd.edu has address 192.168.83.91&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -167,7 +247,7 @@ UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.&lt;/p&gt;
 &lt;p&gt;But this is tedious because you have to go through openlab and enter your
 password twice.  Remote access to the lab machines would be much more
 convenient if you could avoid these two hassles.&lt;/p&gt;
-&lt;h4&gt;Generate SSH key&lt;/h4&gt;
+&lt;h2&gt;Generate SSH key&lt;/h2&gt;
 &lt;p&gt;To avoid entering a password every time, you can create an ssh key.  There
 are many guides on this, like &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;this one from github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The short version is:&lt;/p&gt;
@@ -189,7 +269,7 @@ should only need to do this once).&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Proxy SSH through openlab&lt;/h4&gt;
+&lt;h2&gt;Proxy SSH through openlab&lt;/h2&gt;
 &lt;p&gt;To avoid manually ssh'ing through openlab.umiacs.umd.edu, you can automate
 the process with an ssh "ProxyCommand".  Add the following lines to your
 ~/.ssh/config file on your remote computer (create it if it doesn't exist),
@@ -201,7 +281,7 @@ repeated for each host you'd like to be able to ssh to directly.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Conclusion&lt;/h4&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Once you follow the steps above, you can ssh into a lab machine with one
 command and no ssh passwords.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh lab-pc

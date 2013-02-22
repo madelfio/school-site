@@ -30,15 +30,15 @@
   </header><!-- /#banner -->
   <section id="content" class="body">
   <article>
-    <header>
+    <header class="entry-header">
       <h1 class="entry-title">
         <a href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="bookmark"
            title="Permalink to SSH Tips">SSH Tips</a></h1>
-          </header>
+              <h3 class="entry-subtitle">Tips for SSH'ing around the lab machines</h3>
+                 </header>
 
     <div class="entry-content">
-      <h3>Tips for SSH'ing around the lab machines</h3>
-<p>The lab machines do not have public IP addresses by default.</p>
+      <p>The lab machines do not have public IP addresses by default.</p>
 <div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> host lab-pc.umiacs.umd.edu
 <span class="go">lab-pc.umiacs.umd.edu has address 192.168.83.91</span>
 </pre></div>
@@ -65,7 +65,7 @@ UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.</p>
 <p>But this is tedious because you have to go through openlab and enter your
 password twice.  Remote access to the lab machines would be much more
 convenient if you could avoid these two hassles.</p>
-<h4>Generate SSH key</h4>
+<h2>Generate SSH key</h2>
 <p>To avoid entering a password every time, you can create an ssh key.  There
 are many guides on this, like <a href="https://help.github.com/articles/generating-ssh-keys">this one from github</a>.</p>
 <p>The short version is:</p>
@@ -87,7 +87,7 @@ should only need to do this once).</p>
 </pre></div>
 
 
-<h4>Proxy SSH through openlab</h4>
+<h2>Proxy SSH through openlab</h2>
 <p>To avoid manually ssh'ing through openlab.umiacs.umd.edu, you can automate
 the process with an ssh "ProxyCommand".  Add the following lines to your
 ~/.ssh/config file on your remote computer (create it if it doesn't exist),
@@ -99,7 +99,7 @@ repeated for each host you'd like to be able to ssh to directly.</p>
 </pre></div>
 
 
-<h4>Conclusion</h4>
+<h2>Conclusion</h2>
 <p>Once you follow the steps above, you can ssh into a lab machine with one
 command and no ssh passwords.</p>
 <div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> ssh lab-pc
