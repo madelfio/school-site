@@ -35,6 +35,6 @@ MENUITEMS = [
 
 DISPLAY_PAGES_ON_MENU = False
 
-STATIC_PATHS = ['papers']
+STATIC_PATHS = ['files', 'papers']
 
 CSS_FILE = 'marco.css'
