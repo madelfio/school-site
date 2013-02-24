@@ -21,6 +21,19 @@
   <!--[if lt IE 7]>
   <link rel="stylesheet" type="text/css" media="all" href="{{ SITEURL }}/css/ie6.css"/><![endif]-->
 
+  {% if article and article.javascript %}
+    {% if 'jquery' in article.javascript %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ SITEURL }}/theme/js/libs/jquery-1.9.1.min.js"%3E%3C/script%3E'))
+      </script>
+    {% endif %}
+    {% if 'd3' in article.javascript %}
+      <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
+      <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ SITEURL }}/theme/js/libs/d3.v3..min.js"%3E%3C/script%3E'))
+      </script>
+    {% endif %}
+  {% endif %}
+  <script>var siteurl = "{{ SITEURL }}";</script>
 </head>
 
 <body id="index" class="home">
@@ -72,13 +85,6 @@
   </section><!-- /#extras -->
 
   <footer id="contentinfo" class="body">
-    <!--address id="about" class="vcard body">
-    Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-    </address--><!-- /#about -->
-
-    <!--p>The theme is by <a
-      href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing
-      Magazine</a>, thanks!</p-->
   </footer><!-- /#contentinfo -->
 
 {% include 'analytics.html' %}
