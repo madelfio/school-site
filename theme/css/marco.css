@@ -126,7 +126,7 @@ header#banner li {
   border-radius: 2px;
 }
 
-.body li {
+.body ul li {
   list-style-type: circle;
 }
 
