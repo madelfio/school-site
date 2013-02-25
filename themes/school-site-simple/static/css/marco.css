@@ -18,6 +18,10 @@ a {
   transition-duration: .3s;
 }
 
+sup {vertical-align:super;}
+sub {vertical-align:sub;}
+sup, sub {font-size: smaller; line-height: 100%;}
+
 header#banner a:link, header#banner a:visited {
   color: #900;
   letter-spacing: 1px;
