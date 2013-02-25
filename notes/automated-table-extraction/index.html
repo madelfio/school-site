@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Automated Table Extraction</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="http://umiacs.umd.edu/~marco/theme/css/marco.css" type="text/css" />
+    <link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Marco D. Adelfio Atom Feed" />
+    
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!--[if lte IE 7]>
+  <link rel="stylesheet" type="text/css" media="all" href="http://umiacs.umd.edu/~marco/css/ie.css"/>
+  <script src="http://umiacs.umd.edu/~marco/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+  <!--[if lt IE 7]>
+  <link rel="stylesheet" type="text/css" media="all" href="http://umiacs.umd.edu/~marco/css/ie6.css"/><![endif]-->
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/jquery-1.9.1.min.js"%3E%3C/script%3E'))
+      </script>
+              <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
+      <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/d3.v3..min.js"%3E%3C/script%3E'))
+      </script>
+        <script>var siteurl = "http://umiacs.umd.edu/~marco";</script>
+</head>
+
+<body id="index" class="home">
+  <header id="banner">
+  <h1><a href="http://umiacs.umd.edu/~marco/">Marco D. Adelfio </a></h1>
+  <nav><ul>
+      <li><a href="http://umiacs.umd.edu/~marco/projects">Projects</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/publications">Publications</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/links">Links</a></li>
+      <li><a href="http://umiacs.umd.edu/~marco/about">About</a></li>
+        </ul></nav>
+  </header><!-- /#banner -->
+  <section id="content" class="body">
+  <article>
+    <header class="entry-header">
+      <h1 class="entry-title">
+        <a href="http://umiacs.umd.edu/~marco/notes/automated-table-extraction" rel="bookmark"
+           title="Permalink to Automated Table Extraction">Automated Table Extraction</a></h1>
+              <h3 class="entry-subtitle">With CRFs</h3>
+                 </header>
+
+    <div class="entry-content">
+      <style>
+  #bookmarks * {
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    transition-duration: .2s;
+  }
+  #bookmarks ul {
+    margin-left:0;
+  }
+  #bookmarks li {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    text-align:center;
+    vertical-align: middle;
+    background-color: #eee;
+    font-size:16px;
+    margin-right:17px;
+    -webkit-transition: background-color .2s linear;
+    -moz-transition: background-color .2s linear;
+    -ms-transition: background-color .2s linear;
+    -o-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+  }
+  #bookmarks li.current {
+    background-color: #e66;
+  }
+  #bookmarks a {
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    line-height: 1;
+    color: #888;
+  }
+  #bookmarks span {
+    position:relative;
+    top:38px;
+  }
+  #bookmarks .dbl span {
+    top:30px;
+  }
+  #bookmarks .tpl span {
+    top:26px;
+  }
+  #bookmarks li.current a {
+    color: #fff;
+  }
+  #bookmarks li.current a:hover {
+    text-decoration:none;
+  }
+  /*#bookmarks a:active {
+    -webkit-transition-property:background-color;
+    -moz-transition-property:background-color;
+    -ms-transition-property:background-color;
+    transition-property:background-color;
+    background-color:green;
+  }*/
+
+.example {
+  width: inherit;
+  display: inline-block;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+  background-color: #f6f6f6;
+  margin: 5px 10px;
+  float: right;
+}
+.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+.complex th {background-color: #c33; color: white;}
+
+.complex .title {font-weight: bold;}
+.complex .non-relational {color: #888; font-size: 0.9em;}
+.complex .aggregate {font-style: italic;}
+.complex .group-header td {
+  background-color: #ddd;
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.complex .m {text-align: center;}
+.complex .r {text-align: right;}
+
+</style>
+
+<script>
+  function updateVisibleSection() {
+    var section = window.location.hash || '#table-structures';
+    $('.section').hide();
+    $(section).show();
+    $('.headline a').parent().removeClass('current');
+    $('a[href$="'+section+'"]').parent().addClass('current');
+  }
+  $(window).bind('hashchange', updateVisibleSection);
+  $(updateVisibleSection);
+</script>
+
+<div id="bookmarks">
+
+<p><ul class="headline">
+    <li class="dbl current"><a href="#table-structures"><span>
+      Table<br />Structures
+    </span></a></li>
+    <li class="dbl"><a href="#table-features"><span>
+      Table<br />Features
+    </span></a></li>
+    <li class="tpl"><a href="#crfs"><span>
+      Conditional<br />Random Fields
+    </span></a></li>
+    <li><a href="#experiments"><span>
+      Experiments
+    </span></a></li>
+    <li><a href="#conclusions"><span>
+      Conclusions
+    </span></a></li>
+  </ul></p>
+</div>
+
+<div id="table-structures" class="section">
+
+<h2>Table Structures</h2>
+<p>Tables are <strong>data-dense</strong>. That is, you can fit more information into a
+table than you can fit into the same amount of space using prose.</p>
+<p>A table consists of a 2-dimensional grid of table cells, which can each
+contain a value and can optionally exhibit a variety of cell attributes,
+such as text color, font face, or font style.<a></a><sup>1</sup></p>
+<p>There are many ways of creating a table and many ways file formats that can
+include tables.  Some common formats are spreadsheets (where Microsoft
+Excel is dominant), HTML tables, PDF tables, and ASCII text tables.</p>
+<h3>Simple Tables</h3>
+<p><table class="example">
+  <tr><th>Last</th><th>First</th><th>Gender</th><th>Age</th></tr>
+  <tr><td>Doe</td><td>John</td><td>Male</td><td>29</td></tr>
+  <tr><td>Doe</td><td>Jane</td><td>Female</td><td>30</td></tr>
+  <tr><td>Smith</td><td>Kate</td><td>Female</td><td>42</td></tr>
+</table></p>
+<p>The simple, standard table format contains a single row of <em>k</em> cells that
+comprise the table header, followed by a <em>k x n</em> rectangle of cells that
+comprise the table data.  Each row of data cells describes attributes of a
+single entity, and the type of attribute within each column is defined by
+the header cell for that column.</p>
+<h3>Complex Tables</h3>
+<p><table class="example complex">
+  <tr class="title"><td colspan="3">Patent Applications by Residents</td></tr>
+  <tr class="non-relational"><td colspan="3">Data Source: worldbank.org</td></tr>
+  <tr class="non-relational"><td colspan="3">(showing top countries in each continent)</td></tr>
+  <tr class="header"><th>Country</th><th>Residents</th><th>Applications</th></tr>
+  <tr class="group-header"><td>North America</td><td></td><td></td></tr>
+  <tr><td class="m">United States</td><td class="r">307,007,000</td><td class="r">224,912</td></tr>
+  <tr><td class="m">Canada</td><td class="r">33,739,900</td><td class="r">5,067</td></tr>
+  <tr><td class="m">Mexico</td><td class="r">112,033,369</td><td class="r">822</td></tr>
+  <tr class="aggregate"><td></td><td>N.A. Total</td><td class="r">230,801</td></tr>
+  <tr class="group-header"><td>Asia</td><td></td><td></td></tr>
+  <tr><td class="m">Japan</td><td class="r">127,557,958</td><td class="r">295,315</td></tr>
+  <tr><td class="m">China</td><td class="r">1,331,380,000</td><td class="r">229,096</td></tr>
+  <tr><td class="m">South Korea</td><td class="r">48,747,000</td><td class="r">127,316</td></tr>
+  <tr class="aggregate"><td></td><td>Asia Total</td><td class="r">651,727</td></tr>
+  <tr><td>&nbsp;</td><td></td><td></td></tr>
+  <tr class="non-relational"><td colspan="2">Note: data from 2009</td><td></td></tr>
+</table></p>
+<p>Complex structures are also found in data tables.</p>
+<hr width="100" style="clear:both;" />
+
+<ol>
+<li>A "table" has different meanings in different contexts.  Here "table"
+   always means a grid-based form of presenting data, not a database table
+   or lookup table data structure.</li>
+</ol>
+</div>
+
+<div id="table-features" class="section">
+
+<h2>Table Features</h2>
+</div>
+
+<div id="crfs" class="section">
+
+<h2>Conditional Random Fields</h2>
+</div>
+
+<div id="experiments" class="section">
+
+<h2>Experiments</h2>
+</div>
+
+<div id="conclusions" class="section">
+
+<h2>Conclusions</h2>
+</div>
+      <footer class="post-info">
+        Posted:
+        <abbr class="published" title="2013-02-22T22:08:00">
+                Feb 22, 2013
+        </abbr>
+
+                
+</footer><!-- /.post-info -->    </div><!-- /.entry-content -->
+    
+  </article>
+</section>
+  <section id="extras" class="body">
+      </section><!-- /#extras -->
+
+  <footer id="contentinfo" class="body">
+  </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9669059-5']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    <!-- Start of StatCounter Code for Default Guide -->
+    <script type="text/javascript">
+      var sc_project=8544392;
+      var sc_invisible=1;
+      var sc_security="d727ef73";
+      var scJsHost = (("https:" == document.location.protocol) ?  "https://secure." : "http://www.");
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost + "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+    <noscript>
+      <div class="statcounter">
+        <a title="site stats" href="http://statcounter.com/" target="_blank">
+          <img class="statcounter" src="http://c.statcounter.com/8544392/0/d727ef73/1/" alt="site stats">
+        </a>
+      </div>
+    </noscript>
+    <!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>

@@ -86,7 +86,198 @@ var imgs = floors.append('image')
 
 // reverse floor order
 floors.sort(function(a,b) {return a&gt;b;});
-&lt;/script&gt;</summary></entry><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
+&lt;/script&gt;</summary></entry><entry><title>Automated Table Extraction</title><link href="http://umiacs.umd.edu/~marco/notes/automated-table-extraction" rel="alternate"></link><updated>2013-02-22T22:08:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-22:notes/automated-table-extraction</id><summary type="html">&lt;style&gt;
+  #bookmarks * {
+    -webkit-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    transition-duration: .2s;
+  }
+  #bookmarks ul {
+    margin-left:0;
+  }
+  #bookmarks li {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    text-align:center;
+    vertical-align: middle;
+    background-color: #eee;
+    font-size:16px;
+    margin-right:17px;
+    -webkit-transition: background-color .2s linear;
+    -moz-transition: background-color .2s linear;
+    -ms-transition: background-color .2s linear;
+    -o-transition: background-color .2s linear;
+    transition: background-color .2s linear;
+  }
+  #bookmarks li.current {
+    background-color: #e66;
+  }
+  #bookmarks a {
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    line-height: 1;
+    color: #888;
+  }
+  #bookmarks span {
+    position:relative;
+    top:38px;
+  }
+  #bookmarks .dbl span {
+    top:30px;
+  }
+  #bookmarks .tpl span {
+    top:26px;
+  }
+  #bookmarks li.current a {
+    color: #fff;
+  }
+  #bookmarks li.current a:hover {
+    text-decoration:none;
+  }
+  /*#bookmarks a:active {
+    -webkit-transition-property:background-color;
+    -moz-transition-property:background-color;
+    -ms-transition-property:background-color;
+    transition-property:background-color;
+    background-color:green;
+  }*/
+
+.example {
+  width: inherit;
+  display: inline-block;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+  background-color: #f6f6f6;
+  margin: 5px 10px;
+  float: right;
+}
+.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+.complex th {background-color: #c33; color: white;}
+
+.complex .title {font-weight: bold;}
+.complex .non-relational {color: #888; font-size: 0.9em;}
+.complex .aggregate {font-style: italic;}
+.complex .group-header td {
+  background-color: #ddd;
+  border-bottom: 2px solid #ccc;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.complex .m {text-align: center;}
+.complex .r {text-align: right;}
+
+&lt;/style&gt;
+
+&lt;script&gt;
+  function updateVisibleSection() {
+    var section = window.location.hash || '#table-structures';
+    $('.section').hide();
+    $(section).show();
+    $('.headline a').parent().removeClass('current');
+    $('a[href$="'+section+'"]').parent().addClass('current');
+  }
+  $(window).bind('hashchange', updateVisibleSection);
+  $(updateVisibleSection);
+&lt;/script&gt;
+
+&lt;div id="bookmarks"&gt;
+
+&lt;p&gt;&lt;ul class="headline"&gt;
+    &lt;li class="dbl current"&gt;&lt;a href="#table-structures"&gt;&lt;span&gt;
+      Table&lt;br /&gt;Structures
+    &lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="dbl"&gt;&lt;a href="#table-features"&gt;&lt;span&gt;
+      Table&lt;br /&gt;Features
+    &lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="tpl"&gt;&lt;a href="#crfs"&gt;&lt;span&gt;
+      Conditional&lt;br /&gt;Random Fields
+    &lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#experiments"&gt;&lt;span&gt;
+      Experiments
+    &lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#conclusions"&gt;&lt;span&gt;
+      Conclusions
+    &lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="table-structures" class="section"&gt;
+
+&lt;h2&gt;Table Structures&lt;/h2&gt;
+&lt;p&gt;Tables are &lt;strong&gt;data-dense&lt;/strong&gt;. That is, you can fit more information into a
+table than you can fit into the same amount of space using prose.&lt;/p&gt;
+&lt;p&gt;A table consists of a 2-dimensional grid of table cells, which can each
+contain a value and can optionally exhibit a variety of cell attributes,
+such as text color, font face, or font style.&lt;a&gt;&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;There are many ways of creating a table and many ways file formats that can
+include tables.  Some common formats are spreadsheets (where Microsoft
+Excel is dominant), HTML tables, PDF tables, and ASCII text tables.&lt;/p&gt;
+&lt;h3&gt;Simple Tables&lt;/h3&gt;
+&lt;p&gt;&lt;table class="example"&gt;
+  &lt;tr&gt;&lt;th&gt;Last&lt;/th&gt;&lt;th&gt;First&lt;/th&gt;&lt;th&gt;Gender&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Doe&lt;/td&gt;&lt;td&gt;John&lt;/td&gt;&lt;td&gt;Male&lt;/td&gt;&lt;td&gt;29&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Doe&lt;/td&gt;&lt;td&gt;Jane&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Smith&lt;/td&gt;&lt;td&gt;Kate&lt;/td&gt;&lt;td&gt;Female&lt;/td&gt;&lt;td&gt;42&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;The simple, standard table format contains a single row of &lt;em&gt;k&lt;/em&gt; cells that
+comprise the table header, followed by a &lt;em&gt;k x n&lt;/em&gt; rectangle of cells that
+comprise the table data.  Each row of data cells describes attributes of a
+single entity, and the type of attribute within each column is defined by
+the header cell for that column.&lt;/p&gt;
+&lt;h3&gt;Complex Tables&lt;/h3&gt;
+&lt;p&gt;&lt;table class="example complex"&gt;
+  &lt;tr class="title"&gt;&lt;td colspan="3"&gt;Patent Applications by Residents&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="non-relational"&gt;&lt;td colspan="3"&gt;Data Source: worldbank.org&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="non-relational"&gt;&lt;td colspan="3"&gt;(showing top countries in each continent)&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="header"&gt;&lt;th&gt;Country&lt;/th&gt;&lt;th&gt;Residents&lt;/th&gt;&lt;th&gt;Applications&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr class="group-header"&gt;&lt;td&gt;North America&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;United States&lt;/td&gt;&lt;td class="r"&gt;307,007,000&lt;/td&gt;&lt;td class="r"&gt;224,912&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;Canada&lt;/td&gt;&lt;td class="r"&gt;33,739,900&lt;/td&gt;&lt;td class="r"&gt;5,067&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;Mexico&lt;/td&gt;&lt;td class="r"&gt;112,033,369&lt;/td&gt;&lt;td class="r"&gt;822&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="aggregate"&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;N.A. Total&lt;/td&gt;&lt;td class="r"&gt;230,801&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="group-header"&gt;&lt;td&gt;Asia&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;Japan&lt;/td&gt;&lt;td class="r"&gt;127,557,958&lt;/td&gt;&lt;td class="r"&gt;295,315&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;China&lt;/td&gt;&lt;td class="r"&gt;1,331,380,000&lt;/td&gt;&lt;td class="r"&gt;229,096&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td class="m"&gt;South Korea&lt;/td&gt;&lt;td class="r"&gt;48,747,000&lt;/td&gt;&lt;td class="r"&gt;127,316&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="aggregate"&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Asia Total&lt;/td&gt;&lt;td class="r"&gt;651,727&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="non-relational"&gt;&lt;td colspan="2"&gt;Note: data from 2009&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;Complex structures are also found in data tables.&lt;/p&gt;
+&lt;hr width="100" style="clear:both;" /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;A "table" has different meanings in different contexts.  Here "table"
+   always means a grid-based form of presenting data, not a database table
+   or lookup table data structure.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;div id="table-features" class="section"&gt;
+
+&lt;h2&gt;Table Features&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id="crfs" class="section"&gt;
+
+&lt;h2&gt;Conditional Random Fields&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id="experiments" class="section"&gt;
+
+&lt;h2&gt;Experiments&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id="conclusions" class="section"&gt;
+
+&lt;h2&gt;Conclusions&lt;/h2&gt;
+&lt;/div&gt;</summary></entry><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
   .body code {
     border:none;
     background:none;
@@ -145,7 +336,7 @@ bibliography text.&lt;/p&gt;
     box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
     background-color: #f6f6f6;
     margin:20px 10px;
-    width:350px;
+    max-width:350px;
   }
   #entry-types .sec {
     border-bottom: 2px solid #ccc;

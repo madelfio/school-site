@@ -58,7 +58,7 @@ bibliography text.&lt;/p&gt;
     box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
     background-color: #f6f6f6;
     margin:20px 10px;
-    width:350px;
+    max-width:350px;
   }
   #entry-types .sec {
     border-bottom: 2px solid #ccc;
