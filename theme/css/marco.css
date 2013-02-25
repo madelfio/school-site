@@ -73,7 +73,8 @@ header#banner li {
   position:relative;
   min-height:150px;
 
-  width:600px;
+  width:inherit;
+  max-width:600px;
   margin-left: 291px;
   margin-top: 40px;
   margin-bottom: 10px;
@@ -172,4 +173,15 @@ header#banner li {
 
 .body span.hl-todo {
   background-color: tomato;
+}
+
+@media screen and (max-width: 900px) {
+header#banner { position: absolute; }
+}
+
+@media screen and (max-width: 800px) {
+header#banner { position: static; text-align: center; width: inherit;}
+header#banner nav li {display: inline-block; padding-right: 14px;}
+.body { margin-left: inherit; width: inherit;}
+.body .index-date {margin-left: 10px;}
 }
