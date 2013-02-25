@@ -27,6 +27,7 @@ MENUITEMS = [
     ('Projects', '/projects'),
     ('Publications', '/publications'),
     ('Notes', '/notes'),
+    ('Demos', '/demos'),
     ('Research', '/research'),
     ('Writing', '/writing'),
     ('Random', '/random'),

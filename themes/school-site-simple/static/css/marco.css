@@ -12,7 +12,15 @@ body {
 
 a {
   text-decoration: none;
+  -webkit-transition-duration: .3s;
+  -moz-transition-duration: .3s;
+  -ms-transition-duration: .3s;
+  transition-duration: .3s;
 }
+
+sup {vertical-align:super;}
+sub {vertical-align:sub;}
+sup, sub {font-size: smaller; line-height: 100%;}
 
 header#banner a:link, header#banner a:visited {
   color: #900;
@@ -101,7 +109,7 @@ header#banner li {
 .body h3 {font-size: 18px;}
 .body h4 {font-size: 16px;}
 
-.body h1, .body h2, .body h3, .body h4 {
+.body h1, .body h2, .body h3, .body h4, .body .headline{
   font-family: 'Bree Serif', serif;
   line-height: 1.6;
   font-weight: normal;
