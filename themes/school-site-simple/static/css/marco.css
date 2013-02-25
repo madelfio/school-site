@@ -180,8 +180,8 @@ header#banner { position: absolute; }
 }
 
 @media screen and (max-width: 800px) {
-header#banner { position: static; text-align: center; width: inherit;}
-header#banner nav li {display: inline-block; padding-right: 14px;}
-.body { margin-left: inherit; width: inherit;}
+header#banner { position: static; text-align: center; width: inherit; padding: 10px 5px 0;}
+header#banner nav li {display: inline-block; padding: 0 7px;}
+.body { margin-left: inherit; width: inherit; margin-top: inherit;}
 .body .index-date {margin-left: 10px;}
 }
