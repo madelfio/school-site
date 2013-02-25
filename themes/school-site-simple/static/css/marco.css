@@ -183,12 +183,14 @@ header#banner li {
   background-color: tomato;
 }
 
-@media screen and (max-width: 900px) {
-header#banner { position: absolute; }
-}
-
 @media screen and (max-width: 800px) {
-header#banner { position: static; text-align: center; width: inherit; padding: 10px 5px 0;}
+header#banner {
+  position: static;
+  text-align: center;
+  width: inherit;
+  padding: 10px 5px 0;
+}
+header#banner nav ul { border-bottom: 1px solid #caa; padding-bottom:5px; margin-bottom:5px;}
 header#banner nav li {display: inline-block; padding: 0 7px;}
 .body { margin-left: inherit; width: inherit; margin-top: inherit;}
 .body .index-date {margin-left: 10px;}
