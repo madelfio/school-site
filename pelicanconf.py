@@ -11,7 +11,8 @@ DEFAULT_LANG = u'en'
 
 DEFAULT_PAGINATION = False
 
-# MDA
+# MDA: Remember to restart devserver after making changes here
+
 THEME = 'themes/school-site-simple'
 ARTICLE_URL = 'notes/{slug}'
 ARTICLE_SAVE_AS = 'notes/{slug}/index.html'
