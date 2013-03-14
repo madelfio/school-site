@@ -58,38 +58,31 @@ Javascript: jquery, d3
   #bookmarks li.current a:hover {
     text-decoration:none;
   }
-  /*#bookmarks a:active {
-    -webkit-transition-property:background-color;
-    -moz-transition-property:background-color;
-    -ms-transition-property:background-color;
-    transition-property:background-color;
-    background-color:green;
-  }*/
 
-.example {
-  width: inherit;
-  display: inline-block;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
-  background-color: #f6f6f6;
-  margin: 5px 10px;
-  float: right;
-}
-.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
-.complex th {background-color: #c33; color: white;}
+  .example {
+    width: inherit;
+    display: inline-block;
+             border-radius: 2px;
+             box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+             background-color: #f6f6f6;
+    margin: 5px 10px;
+    float: right;
+  }
+  .example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+  .complex th {background-color: #c33; color: white;}
 
-.complex .title {font-weight: bold;}
-.complex .non-relational {color: #888; font-size: 0.9em;}
-.complex .aggregate {font-style: italic;}
-.complex .group-header td {
-  background-color: #ddd;
-  border-bottom: 2px solid #ccc;
-  font-weight: bold;
-  font-style: italic;
-}
+  .complex .title {font-weight: bold;}
+  .complex .non-relational {color: #888; font-size: 0.9em;}
+  .complex .aggregate {font-style: italic;}
+  .complex .group-header td {
+    background-color: #ddd;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+    font-style: italic;
+  }
 
-.complex .m {text-align: center;}
-.complex .r {text-align: right;}
+  .complex .m {text-align: center;}
+  .complex .r {text-align: right;}
 
 </style>
 
@@ -128,8 +121,9 @@ Javascript: jquery, d3
 <div id="table-structures" class="section" markdown="1">
 ##Table Structures
 
-Tables are **data-dense**. That is, you can fit more information into a
-table than you can fit into the same amount of space using prose.
+Tables are a **data-dense** presentation format. You can communicate more
+information using a table than you can in the same amount of space using
+prose.
 
 A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
@@ -138,6 +132,13 @@ such as text color, font face, or font style.<a></a><sup>1</sup>
 There are many ways of creating a table and many ways file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.
+
+While there are many purposes for using a grid of table cells, we focus on
+**relational tables**, meaning tables that describe a collection of objects or
+entities and a common set of related attributes for each.  Although HTML
+tables used as calendars or spreadsheets used as data-entry forms may have
+tabular structure, in this discussion we ignore such **non-relational
+tables**.
 
 ### Simple Tables
 
@@ -174,7 +175,26 @@ the header cell for that column.
   <tr class="non-relational"><td colspan="2">Note: data from 2009</td><td></td></tr>
 </table>
 
-Complex structures are also found in data tables.
+Complex structures are also found in data tables.  For example, the table at
+right contains much more than a single header row followed by only data rows.
+To aid in understanding the functions of different table rows, we categorize
+the purpose of each row as one of the following.
+
+  - **Header** rows are used to communicate the column headings.
+  - **Data** rows contain relational data values.
+  - **Title** rows provide captions or titles for an entire table.
+  - **Group header** rows provide captions or titles for sections of a table.
+  - **Aggregate** rows are used for totals or sub-totals.
+  - **Non-relational** rows are used to add comments or notes to the table but
+    are not part of the table's relational structure.
+  - **Blank** rows contain no data or values (but can still be meaningful in the
+    table's formatting).
+
+As with any free-form human communication medium, the functional
+classification of rows is imperfect.  Some rows may not be described by any of
+the above labels, while other rows may be described accurately by multiple
+labels.  Our study of a large sample of web tables, however, has found that
+this set of labels covers the vast majority of rows with little ambiguity.
 
 <hr width="100" style="clear:both;" />
 

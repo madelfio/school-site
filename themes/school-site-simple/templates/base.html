@@ -24,12 +24,16 @@
 
   {% if article and article.javascript %}
     {% if 'jquery' in article.javascript %}
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      {% if not LINK_LOCAL_JAVASCRIPT %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      {% endif %}
       <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ SITEURL }}/theme/js/libs/jquery-1.9.1.min.js"%3E%3C/script%3E'))
       </script>
     {% endif %}
     {% if 'd3' in article.javascript %}
+      {% if not LINK_LOCAL_JAVASCRIPT %}
       <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
+      {% endif %}
       <script>!window.jQuery && document.write(unescape('%3Cscript src="{{ SITEURL }}/theme/js/libs/d3.v3..min.js"%3E%3C/script%3E'))
       </script>
     {% endif %}

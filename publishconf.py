@@ -8,6 +8,7 @@ from pelicanconf import *
 SITEURL = 'http://umiacs.umd.edu/~marco'
 
 DELETE_OUTPUT_DIRECTORY = True
+LINK_LOCAL_JAVASCRIPT = False
 
 # Following items are often useful when publishing
 
@@ -25,4 +26,3 @@ MENUITEMS = [
 GOOGLE_ANALYTICS = 'UA-9669059-5'
 STATCOUNTER = [8544392, 'd727ef73']
 
-#DISQUS_SITENAME = ""
