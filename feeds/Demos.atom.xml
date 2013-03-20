@@ -52,38 +52,31 @@
   #bookmarks li.current a:hover {
     text-decoration:none;
   }
-  /*#bookmarks a:active {
-    -webkit-transition-property:background-color;
-    -moz-transition-property:background-color;
-    -ms-transition-property:background-color;
-    transition-property:background-color;
-    background-color:green;
-  }*/
 
-.example {
-  width: inherit;
-  display: inline-block;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
-  background-color: #f6f6f6;
-  margin: 5px 10px;
-  float: right;
-}
-.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
-.complex th {background-color: #c33; color: white;}
+  .example {
+    width: inherit;
+    display: inline-block;
+             border-radius: 2px;
+             box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+             background-color: #f6f6f6;
+    margin: 5px 10px;
+    float: right;
+  }
+  .example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+  .complex th {background-color: #c33; color: white;}
 
-.complex .title {font-weight: bold;}
-.complex .non-relational {color: #888; font-size: 0.9em;}
-.complex .aggregate {font-style: italic;}
-.complex .group-header td {
-  background-color: #ddd;
-  border-bottom: 2px solid #ccc;
-  font-weight: bold;
-  font-style: italic;
-}
+  .complex .title {font-weight: bold;}
+  .complex .non-relational {color: #888; font-size: 0.9em;}
+  .complex .aggregate {font-style: italic;}
+  .complex .group-header td {
+    background-color: #ddd;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+    font-style: italic;
+  }
 
-.complex .m {text-align: center;}
-.complex .r {text-align: right;}
+  .complex .m {text-align: center;}
+  .complex .r {text-align: right;}
 
 &lt;/style&gt;
 
@@ -123,14 +116,21 @@
 &lt;div id="table-structures" class="section"&gt;
 
 &lt;h2&gt;Table Structures&lt;/h2&gt;
-&lt;p&gt;Tables are &lt;strong&gt;data-dense&lt;/strong&gt;. That is, you can fit more information into a
-table than you can fit into the same amount of space using prose.&lt;/p&gt;
+&lt;p&gt;Tables are a &lt;strong&gt;data-dense&lt;/strong&gt; presentation format. You can communicate more
+information using a table than you can in the same amount of space using
+prose.&lt;/p&gt;
 &lt;p&gt;A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
 such as text color, font face, or font style.&lt;a&gt;&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;There are many ways of creating a table and many ways file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.&lt;/p&gt;
+&lt;p&gt;While there are many purposes for using a grid of table cells, we focus on
+&lt;strong&gt;relational tables&lt;/strong&gt;, meaning tables that describe a collection of objects or
+entities and a common set of related attributes for each.  Although HTML
+tables used as calendars or spreadsheets used as data-entry forms may have
+tabular structure, in this discussion we ignore such &lt;strong&gt;non-relational
+tables&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Simple Tables&lt;/h3&gt;
 &lt;p&gt;&lt;table class="example"&gt;
   &lt;tr&gt;&lt;th&gt;Last&lt;/th&gt;&lt;th&gt;First&lt;/th&gt;&lt;th&gt;Gender&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
@@ -162,7 +162,26 @@ the header cell for that column.&lt;/p&gt;
   &lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
   &lt;tr class="non-relational"&gt;&lt;td colspan="2"&gt;Note: data from 2009&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;&lt;/p&gt;
-&lt;p&gt;Complex structures are also found in data tables.&lt;/p&gt;
+&lt;p&gt;Complex structures are also found in data tables.  For example, the table at
+right contains much more than a single header row followed by only data rows.
+To aid in understanding the functions of different table rows, we categorize
+the purpose of each row as one of the following.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Header&lt;/strong&gt; rows are used to communicate the column headings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt; rows contain relational data values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Title&lt;/strong&gt; rows provide captions or titles for an entire table.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Group header&lt;/strong&gt; rows provide captions or titles for sections of a table.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aggregate&lt;/strong&gt; rows are used for totals or sub-totals.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-relational&lt;/strong&gt; rows are used to add comments or notes to the table but
+    are not part of the table's relational structure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blank&lt;/strong&gt; rows contain no data or values (but can still be meaningful in the
+    table's formatting).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As with any free-form human communication medium, the functional
+classification of rows is imperfect.  Some rows may not be described by any of
+the above labels, while other rows may be described accurately by multiple
+labels.  Our study of a large sample of web tables, however, has found that
+this set of labels covers the vast majority of rows with little ambiguity.&lt;/p&gt;
 &lt;hr width="100" style="clear:both;" /&gt;
 
 &lt;ol&gt;

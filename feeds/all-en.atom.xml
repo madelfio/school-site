@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all-en.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-23T14:46:00-05:00</updated><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-23:notes/av-williams-building</id><summary type="html">&lt;style&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all-en.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-03-15T16:19:00-04:00</updated><entry><title>How to add OAuth to a Node.js app using Passport</title><link href="http://umiacs.umd.edu/~marco/notes/how-to-add-oauth-to-a-nodejs-app-using-passport" rel="alternate"></link><updated>2013-03-15T16:19:00-04:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-03-15:notes/how-to-add-oauth-to-a-nodejs-app-using-passport</id><summary type="html">&lt;p&gt;I want to have usernames and sessions in some node.js apps.  Here's how I set
+it up using &lt;a href="http://passportjs.org/"&gt;Passport&lt;/a&gt; (which has a user guide, but does not seem to have a
+cookbook-like tutorial for getting everything set up).&lt;/p&gt;
+&lt;h2&gt;Install&lt;/h2&gt;
+&lt;p&gt;First install Passport and the Google "Strategy" (not a fan of this name):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; npm install passport passport-google
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Files&lt;/h2&gt;
+&lt;p&gt;You will be editing app.js and adding several files to your app:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="go"&gt;./my-app&lt;/span&gt;
+&lt;span class="go"&gt;├── app.js  (Modify existing)&lt;/span&gt;
+&lt;span class="go"&gt;├── auth.js&lt;/span&gt;
+&lt;span class="go"&gt;├── public&lt;/span&gt;
+&lt;span class="go"&gt;│   └── images&lt;/span&gt;
+&lt;span class="go"&gt;│       └── google.png&lt;/span&gt;
+&lt;span class="go"&gt;└── views&lt;/span&gt;
+&lt;span class="go"&gt;    ├── login.ejs&lt;/span&gt;
+&lt;span class="go"&gt;    └── unauthorized.ejs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;App.js&lt;/h4&gt;
+&lt;p&gt;First, require passport, passport-google (or other strategies), and the
+soon-to-be-created &lt;code&gt;auth.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="cm"&gt;/* Authentication */&lt;/span&gt;
+    &lt;span class="nx"&gt;passport&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;GoogleStrategy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport-google&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./auth&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-23:notes/av-williams-building</id><summary type="html">&lt;style&gt;
   svg {height:665px; width:750px;}
   #floorplan-wrapper {
     background-color:#fff;
@@ -139,38 +172,31 @@ floors.sort(function(a,b) {return a&gt;b;});
   #bookmarks li.current a:hover {
     text-decoration:none;
   }
-  /*#bookmarks a:active {
-    -webkit-transition-property:background-color;
-    -moz-transition-property:background-color;
-    -ms-transition-property:background-color;
-    transition-property:background-color;
-    background-color:green;
-  }*/
 
-.example {
-  width: inherit;
-  display: inline-block;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
-  background-color: #f6f6f6;
-  margin: 5px 10px;
-  float: right;
-}
-.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
-.complex th {background-color: #c33; color: white;}
+  .example {
+    width: inherit;
+    display: inline-block;
+             border-radius: 2px;
+             box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+             background-color: #f6f6f6;
+    margin: 5px 10px;
+    float: right;
+  }
+  .example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+  .complex th {background-color: #c33; color: white;}
 
-.complex .title {font-weight: bold;}
-.complex .non-relational {color: #888; font-size: 0.9em;}
-.complex .aggregate {font-style: italic;}
-.complex .group-header td {
-  background-color: #ddd;
-  border-bottom: 2px solid #ccc;
-  font-weight: bold;
-  font-style: italic;
-}
+  .complex .title {font-weight: bold;}
+  .complex .non-relational {color: #888; font-size: 0.9em;}
+  .complex .aggregate {font-style: italic;}
+  .complex .group-header td {
+    background-color: #ddd;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+    font-style: italic;
+  }
 
-.complex .m {text-align: center;}
-.complex .r {text-align: right;}
+  .complex .m {text-align: center;}
+  .complex .r {text-align: right;}
 
 &lt;/style&gt;
 
@@ -210,14 +236,21 @@ floors.sort(function(a,b) {return a&gt;b;});
 &lt;div id="table-structures" class="section"&gt;
 
 &lt;h2&gt;Table Structures&lt;/h2&gt;
-&lt;p&gt;Tables are &lt;strong&gt;data-dense&lt;/strong&gt;. That is, you can fit more information into a
-table than you can fit into the same amount of space using prose.&lt;/p&gt;
+&lt;p&gt;Tables are a &lt;strong&gt;data-dense&lt;/strong&gt; presentation format. You can communicate more
+information using a table than you can in the same amount of space using
+prose.&lt;/p&gt;
 &lt;p&gt;A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
 such as text color, font face, or font style.&lt;a&gt;&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;There are many ways of creating a table and many ways file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.&lt;/p&gt;
+&lt;p&gt;While there are many purposes for using a grid of table cells, we focus on
+&lt;strong&gt;relational tables&lt;/strong&gt;, meaning tables that describe a collection of objects or
+entities and a common set of related attributes for each.  Although HTML
+tables used as calendars or spreadsheets used as data-entry forms may have
+tabular structure, in this discussion we ignore such &lt;strong&gt;non-relational
+tables&lt;/strong&gt;.&lt;/p&gt;
 &lt;h3&gt;Simple Tables&lt;/h3&gt;
 &lt;p&gt;&lt;table class="example"&gt;
   &lt;tr&gt;&lt;th&gt;Last&lt;/th&gt;&lt;th&gt;First&lt;/th&gt;&lt;th&gt;Gender&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
@@ -249,7 +282,26 @@ the header cell for that column.&lt;/p&gt;
   &lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
   &lt;tr class="non-relational"&gt;&lt;td colspan="2"&gt;Note: data from 2009&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;&lt;/p&gt;
-&lt;p&gt;Complex structures are also found in data tables.&lt;/p&gt;
+&lt;p&gt;Complex structures are also found in data tables.  For example, the table at
+right contains much more than a single header row followed by only data rows.
+To aid in understanding the functions of different table rows, we categorize
+the purpose of each row as one of the following.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Header&lt;/strong&gt; rows are used to communicate the column headings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt; rows contain relational data values.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Title&lt;/strong&gt; rows provide captions or titles for an entire table.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Group header&lt;/strong&gt; rows provide captions or titles for sections of a table.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aggregate&lt;/strong&gt; rows are used for totals or sub-totals.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Non-relational&lt;/strong&gt; rows are used to add comments or notes to the table but
+    are not part of the table's relational structure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Blank&lt;/strong&gt; rows contain no data or values (but can still be meaningful in the
+    table's formatting).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As with any free-form human communication medium, the functional
+classification of rows is imperfect.  Some rows may not be described by any of
+the above labels, while other rows may be described accurately by multiple
+labels.  Our study of a large sample of web tables, however, has found that
+this set of labels covers the vast majority of rows with little ambiguity.&lt;/p&gt;
 &lt;hr width="100" style="clear:both;" /&gt;
 
 &lt;ol&gt;
@@ -497,10 +549,44 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 
 
 &lt;h3&gt;Resize image&lt;/h3&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png  &lt;span class="c"&gt;# resize to 200x200 pixels&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png  &lt;span class="c"&gt;# resize width to 200, preserving aspect ratio&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png  &lt;span class="c"&gt;# resize height to 200, preserving aspect ratio&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+&lt;p&gt;Resize to 200x200 pixels.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Resize width to 200, preserving aspect ratio.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Resize height to 200, preserving aspect ratio.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Crop image&lt;/h3&gt;
+&lt;p&gt;Crop to 100x100 pixels, starting from pixel (5, 5), then resize canvas to
+match result.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -crop 100x100+5+5 +repage example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Resize and crop from center&lt;/h3&gt;
+&lt;p&gt;This is helpful if you want a thumbnail of a certain size, regardless of the
+original aspect ratio (&lt;a href="http://www.imagemagick.org/script/command-line-processing.php?ImageMagick=45bcl1a3agvbinon3bgbll7l16#geometry"&gt;doc&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.jpg -resize 200x100^ -gravity center &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="go"&gt;                      -crop 200x100+0+0 +repage example.jpg&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Add border&lt;/h3&gt;
+&lt;p&gt;Add gray border, 1 pixel wide.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -border 1 -bordercolor gray example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Updates&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;3/20/13&lt;/em&gt; - Added cropping and border examples&lt;/p&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for

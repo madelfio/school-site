@@ -17,11 +17,11 @@
   <!--[if lt IE 7]>
   <link rel="stylesheet" type="text/css" media="all" href="http://umiacs.umd.edu/~marco/css/ie6.css"/><![endif]-->
 
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-      <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/jquery-1.9.1.min.js"%3E%3C/script%3E'))
+                    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/jquery-1.9.1.min.js"%3E%3C/script%3E'))
       </script>
-              <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
-      <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/d3.v3..min.js"%3E%3C/script%3E'))
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.1/d3.v3.min.js"></script>
+            <script>!window.jQuery && document.write(unescape('%3Cscript src="http://umiacs.umd.edu/~marco/theme/js/libs/d3.v3..min.js"%3E%3C/script%3E'))
       </script>
         <script>var siteurl = "http://umiacs.umd.edu/~marco";</script>
 </head>
@@ -99,38 +99,31 @@
   #bookmarks li.current a:hover {
     text-decoration:none;
   }
-  /*#bookmarks a:active {
-    -webkit-transition-property:background-color;
-    -moz-transition-property:background-color;
-    -ms-transition-property:background-color;
-    transition-property:background-color;
-    background-color:green;
-  }*/
 
-.example {
-  width: inherit;
-  display: inline-block;
-  border-radius: 2px;
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
-  background-color: #f6f6f6;
-  margin: 5px 10px;
-  float: right;
-}
-.example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
-.complex th {background-color: #c33; color: white;}
+  .example {
+    width: inherit;
+    display: inline-block;
+             border-radius: 2px;
+             box-shadow: 0 0 10px rgba(100, 100, 100, 0.8);
+             background-color: #f6f6f6;
+    margin: 5px 10px;
+    float: right;
+  }
+  .example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
+  .complex th {background-color: #c33; color: white;}
 
-.complex .title {font-weight: bold;}
-.complex .non-relational {color: #888; font-size: 0.9em;}
-.complex .aggregate {font-style: italic;}
-.complex .group-header td {
-  background-color: #ddd;
-  border-bottom: 2px solid #ccc;
-  font-weight: bold;
-  font-style: italic;
-}
+  .complex .title {font-weight: bold;}
+  .complex .non-relational {color: #888; font-size: 0.9em;}
+  .complex .aggregate {font-style: italic;}
+  .complex .group-header td {
+    background-color: #ddd;
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+    font-style: italic;
+  }
 
-.complex .m {text-align: center;}
-.complex .r {text-align: right;}
+  .complex .m {text-align: center;}
+  .complex .r {text-align: right;}
 
 </style>
 
@@ -170,14 +163,21 @@
 <div id="table-structures" class="section">
 
 <h2>Table Structures</h2>
-<p>Tables are <strong>data-dense</strong>. That is, you can fit more information into a
-table than you can fit into the same amount of space using prose.</p>
+<p>Tables are a <strong>data-dense</strong> presentation format. You can communicate more
+information using a table than you can in the same amount of space using
+prose.</p>
 <p>A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
 such as text color, font face, or font style.<a></a><sup>1</sup></p>
 <p>There are many ways of creating a table and many ways file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.</p>
+<p>While there are many purposes for using a grid of table cells, we focus on
+<strong>relational tables</strong>, meaning tables that describe a collection of objects or
+entities and a common set of related attributes for each.  Although HTML
+tables used as calendars or spreadsheets used as data-entry forms may have
+tabular structure, in this discussion we ignore such <strong>non-relational
+tables</strong>.</p>
 <h3>Simple Tables</h3>
 <p><table class="example">
   <tr><th>Last</th><th>First</th><th>Gender</th><th>Age</th></tr>
@@ -209,7 +209,26 @@ the header cell for that column.</p>
   <tr><td>&nbsp;</td><td></td><td></td></tr>
   <tr class="non-relational"><td colspan="2">Note: data from 2009</td><td></td></tr>
 </table></p>
-<p>Complex structures are also found in data tables.</p>
+<p>Complex structures are also found in data tables.  For example, the table at
+right contains much more than a single header row followed by only data rows.
+To aid in understanding the functions of different table rows, we categorize
+the purpose of each row as one of the following.</p>
+<ul>
+<li><strong>Header</strong> rows are used to communicate the column headings.</li>
+<li><strong>Data</strong> rows contain relational data values.</li>
+<li><strong>Title</strong> rows provide captions or titles for an entire table.</li>
+<li><strong>Group header</strong> rows provide captions or titles for sections of a table.</li>
+<li><strong>Aggregate</strong> rows are used for totals or sub-totals.</li>
+<li><strong>Non-relational</strong> rows are used to add comments or notes to the table but
+    are not part of the table's relational structure.</li>
+<li><strong>Blank</strong> rows contain no data or values (but can still be meaningful in the
+    table's formatting).</li>
+</ul>
+<p>As with any free-form human communication medium, the functional
+classification of rows is imperfect.  Some rows may not be described by any of
+the above labels, while other rows may be described accurately by multiple
+labels.  Our study of a large sample of web tables, however, has found that
+this set of labels covers the vast majority of rows with little ambiguity.</p>
 <hr width="100" style="clear:both;" />
 
 <ol>

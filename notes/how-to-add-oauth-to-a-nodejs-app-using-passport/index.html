@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Images Cheat-Sheet</title>
+  <title>How to add OAuth to a Node.js app using Passport</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="stylesheet" href="http://umiacs.umd.edu/~marco/theme/css/marco.css" type="text/css" />
@@ -34,60 +34,49 @@
   <article>
     <header class="entry-header">
       <h1 class="entry-title">
-        <a href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="bookmark"
-           title="Permalink to Images Cheat-Sheet">Images Cheat-Sheet</a></h1>
+        <a href="http://umiacs.umd.edu/~marco/notes/how-to-add-oauth-to-a-nodejs-app-using-passport" rel="bookmark"
+           title="Permalink to How to add OAuth to a Node.js app using Passport">How to add OAuth to a Node.js app using Passport</a></h1>
                  </header>
 
     <div class="entry-content">
-      <h3>Read image information (size, encoding information)</h3>
-<div class="codehilite"><pre><span class="gp">$</span> file example.png
-<span class="gp">$</span> identify example.png  <span class="c"># (also works with jpegs)</span>
+      <p>I want to have usernames and sessions in some node.js apps.  Here's how I set
+it up using <a href="http://passportjs.org/">Passport</a> (which has a user guide, but does not seem to have a
+cookbook-like tutorial for getting everything set up).</p>
+<h2>Install</h2>
+<p>First install Passport and the Google "Strategy" (not a fan of this name):</p>
+<div class="codehilite"><pre><span class="gp">$</span> npm install passport passport-google
 </pre></div>
 
 
-<h3>Resize image</h3>
-<p>Resize to 200x200 pixels.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize 200x200 example.png
+<h2>Files</h2>
+<p>You will be editing app.js and adding several files to your app:</p>
+<div class="codehilite"><pre><span class="go">./my-app</span>
+<span class="go">├── app.js  (Modify existing)</span>
+<span class="go">├── auth.js</span>
+<span class="go">├── public</span>
+<span class="go">│   └── images</span>
+<span class="go">│       └── google.png</span>
+<span class="go">└── views</span>
+<span class="go">    ├── login.ejs</span>
+<span class="go">    └── unauthorized.ejs</span>
 </pre></div>
 
 
-<p>Resize width to 200, preserving aspect ratio.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize 200 example.png
+<h4>App.js</h4>
+<p>First, require passport, passport-google (or other strategies), and the
+soon-to-be-created <code>auth.js</code>:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">),</span>
+    <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span>
+    <span class="p">...</span>
+    <span class="cm">/* Authentication */</span>
+    <span class="nx">passport</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport&#39;</span><span class="p">),</span>
+    <span class="nx">GoogleStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-google&#39;</span><span class="p">),</span>
+    <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./auth&#39;</span><span class="p">);</span>
 </pre></div>
-
-
-<p>Resize height to 200, preserving aspect ratio.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize x200 example.png
-</pre></div>
-
-
-<h3>Crop image</h3>
-<p>Crop to 100x100 pixels, starting from pixel (5, 5), then resize canvas to
-match result.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -crop 100x100+5+5 +repage example.png
-</pre></div>
-
-
-<h3>Resize and crop from center</h3>
-<p>This is helpful if you want a thumbnail of a certain size, regardless of the
-original aspect ratio (<a href="http://www.imagemagick.org/script/command-line-processing.php?ImageMagick=45bcl1a3agvbinon3bgbll7l16#geometry">doc</a>).</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.jpg -resize 200x100^ -gravity center <span class="se">\</span>
-<span class="go">                      -crop 200x100+0+0 +repage example.jpg</span>
-</pre></div>
-
-
-<h3>Add border</h3>
-<p>Add gray border, 1 pixel wide.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -border 1 -bordercolor gray example.png
-</pre></div>
-
-
-<h4>Updates</h4>
-<p><em>3/20/13</em> - Added cropping and border examples</p>
       <footer class="post-info">
         Posted:
-        <abbr class="published" title="2013-02-08T13:10:00">
-                Feb 08, 2013
+        <abbr class="published" title="2013-03-15T16:19:00">
+                Mar 15, 2013
         </abbr>
 
                 

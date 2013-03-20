@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/Notes.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-20T16:50:00-05:00</updated><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/Notes.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-03-15T16:19:00-04:00</updated><entry><title>How to add OAuth to a Node.js app using Passport</title><link href="http://umiacs.umd.edu/~marco/notes/how-to-add-oauth-to-a-nodejs-app-using-passport" rel="alternate"></link><updated>2013-03-15T16:19:00-04:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-03-15:notes/how-to-add-oauth-to-a-nodejs-app-using-passport</id><summary type="html">&lt;p&gt;I want to have usernames and sessions in some node.js apps.  Here's how I set
+it up using &lt;a href="http://passportjs.org/"&gt;Passport&lt;/a&gt; (which has a user guide, but does not seem to have a
+cookbook-like tutorial for getting everything set up).&lt;/p&gt;
+&lt;h2&gt;Install&lt;/h2&gt;
+&lt;p&gt;First install Passport and the Google "Strategy" (not a fan of this name):&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; npm install passport passport-google
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Files&lt;/h2&gt;
+&lt;p&gt;You will be editing app.js and adding several files to your app:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="go"&gt;./my-app&lt;/span&gt;
+&lt;span class="go"&gt;├── app.js  (Modify existing)&lt;/span&gt;
+&lt;span class="go"&gt;├── auth.js&lt;/span&gt;
+&lt;span class="go"&gt;├── public&lt;/span&gt;
+&lt;span class="go"&gt;│   └── images&lt;/span&gt;
+&lt;span class="go"&gt;│       └── google.png&lt;/span&gt;
+&lt;span class="go"&gt;└── views&lt;/span&gt;
+&lt;span class="go"&gt;    ├── login.ejs&lt;/span&gt;
+&lt;span class="go"&gt;    └── unauthorized.ejs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;App.js&lt;/h4&gt;
+&lt;p&gt;First, require passport, passport-google (or other strategies), and the
+soon-to-be-created &lt;code&gt;auth.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="cm"&gt;/* Authentication */&lt;/span&gt;
+    &lt;span class="nx"&gt;passport&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;GoogleStrategy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport-google&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+    &lt;span class="nx"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./auth&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
   .body code {
     border:none;
     background:none;
@@ -167,10 +200,44 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 
 
 &lt;h3&gt;Resize image&lt;/h3&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png  &lt;span class="c"&gt;# resize to 200x200 pixels&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png  &lt;span class="c"&gt;# resize width to 200, preserving aspect ratio&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png  &lt;span class="c"&gt;# resize height to 200, preserving aspect ratio&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+&lt;p&gt;Resize to 200x200 pixels.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200x200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Resize width to 200, preserving aspect ratio.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Resize height to 200, preserving aspect ratio.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize x200 example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Crop image&lt;/h3&gt;
+&lt;p&gt;Crop to 100x100 pixels, starting from pixel (5, 5), then resize canvas to
+match result.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -crop 100x100+5+5 +repage example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Resize and crop from center&lt;/h3&gt;
+&lt;p&gt;This is helpful if you want a thumbnail of a certain size, regardless of the
+original aspect ratio (&lt;a href="http://www.imagemagick.org/script/command-line-processing.php?ImageMagick=45bcl1a3agvbinon3bgbll7l16#geometry"&gt;doc&lt;/a&gt;).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.jpg -resize 200x100^ -gravity center &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="go"&gt;                      -crop 200x100+0+0 +repage example.jpg&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Add border&lt;/h3&gt;
+&lt;p&gt;Add gray border, 1 pixel wide.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -border 1 -bordercolor gray example.png
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Updates&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;3/20/13&lt;/em&gt; - Added cropping and border examples&lt;/p&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for
