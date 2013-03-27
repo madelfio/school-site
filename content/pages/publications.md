@@ -5,7 +5,9 @@ Title: Publications
 - M. D. Adelfio and H. Samet. Schema extraction for tabular data on the
   web.  To appear in VLDB'13.
 - S. Nutanong, M. D. Adelfio, and H. Samet. An efficient layout method for
-  a large collection of geographic data entries. To appear in EDBT'13.
+  a large collection of geographic data entries. In EDBT'13: Proceedings of
+  the 16th International Conference on Extending Database Technology, pages
+  717-720, Genoa, Italy, March 2013. [[PDF][8]]
 - S. Nutanong, M. D. Adelfio, and H. Samet. Multiresolution select-distinct
   queries on large geographic point sets. In GIS'12: Proceedings of the
   20th ACM SIGSPATIAL International Conference on Advances in Geographic
@@ -40,6 +42,7 @@ Title: Publications
 
 </div>
 
+[8]: |filename|/papers/edbt13-layout.pdf
 [7]: |filename|/papers/acmgis12-distinctiveness.pdf
 [6]: |filename|/papers/acmgis11-haus-search.pdf
 [5]: |filename|/papers/acmgis11-geoxls-demo.pdf
