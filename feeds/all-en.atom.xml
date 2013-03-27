@@ -185,7 +185,7 @@ floors.sort(function(a,b) {return a&gt;b;});
   .example th, .example td {padding: 1px 5px; border: 1px solid #ccc;}
   .complex th {background-color: #c33; color: white;}
 
-  .complex .title {font-weight: bold;}
+  .complex .title {font-weight: bold; color: darkblue;}
   .complex .non-relational {color: #888; font-size: 0.9em;}
   .complex .aggregate {font-style: italic;}
   .complex .group-header td {
