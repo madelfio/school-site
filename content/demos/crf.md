@@ -59,6 +59,14 @@ Javascript: jquery, d3
     text-decoration:none;
   }
 
+  /*#bookmarks a:active {
+    -webkit-transition-property:background-color;
+    -moz-transition-property:background-color;
+    -ms-transition-property:background-color;
+    transition-property:background-color;
+    background-color:green;
+  }*/
+
   .example {
     width: inherit;
     display: inline-block;
