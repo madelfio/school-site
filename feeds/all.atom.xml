@@ -173,6 +173,14 @@ floors.sort(function(a,b) {return a&gt;b;});
     text-decoration:none;
   }
 
+  /*#bookmarks a:active {
+    -webkit-transition-property:background-color;
+    -moz-transition-property:background-color;
+    -ms-transition-property:background-color;
+    transition-property:background-color;
+    background-color:green;
+  }*/
+
   .example {
     width: inherit;
     display: inline-block;
@@ -542,6 +550,7 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 &lt;/ul&gt;</summary></entry><entry><title>Writing Resources</title><link href="http://umiacs.umd.edu/~marco/notes/writing-resources" rel="alternate"></link><updated>2013-02-13T19:17:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-13:notes/writing-resources</id><summary type="html">&lt;h4&gt;Dissertations&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.eecs.harvard.edu/~michaelm/postscripts/mythesis.pdf"&gt;Michael Mitzenmacher&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://benfry.com/phd/dissertation-110323c.pdf"&gt;Ben Fry&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</summary></entry><entry><title>Ranking tables in search results</title><link href="http://umiacs.umd.edu/~marco/notes/ranking-tables-in-search-results" rel="alternate"></link><updated>2013-02-13T14:11:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-13:notes/ranking-tables-in-search-results</id><summary type="html">&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; file example.png
 &lt;span class="gp"&gt;$&lt;/span&gt; identify example.png  &lt;span class="c"&gt;# (also works with jpegs)&lt;/span&gt;
