@@ -46,3 +46,15 @@ Should add questions about:
 ##Ideas for quiz site
 
   - Allow user to mark question as "Not interesting/relevant to me"
+
+## Quiz Types
+
+### Maps
+
+### Brackets
+
+Suitable for ordered sets.
+
+Example:
+
+  - [Census Game](http://www.census.gov/dataviz/visualizations/057/)
