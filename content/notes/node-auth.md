@@ -3,6 +3,7 @@ Date: 2013-03-15 16:19
 Summary:
 Slug: node-auth
 Category: Notes
+Status: draft
 
 I want to have usernames and sessions in some node.js apps.  Here's how I set
 it up using [Passport][1] (which has a user guide, but does not seem to have a
