@@ -653,15 +653,23 @@ this.&lt;/p&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
 &lt;span class="gp"&gt;$&lt;/span&gt; ls
 &lt;span class="go"&gt;cover-letter.pdf  cv.pdf  proposal.pdf  submission.pdf&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;p&gt;The lab machines do not have public IP addresses by default.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;p&gt;&lt;em&gt;These are instructions for using ssh to access a machine that doesn't have a
+public IP address by going through one that does.  They're written for
+machines on the UMIACS network at UMD, but should apply generically.&lt;/em&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;Say you're on your home computer, which we'll call "home-pc", and want to ssh
+to a lab computer, "lab-pc".  You probably can't do this directly because most
+of the UMIACS lab machines don't have public IP addresses:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; host lab-pc.umiacs.umd.edu
 &lt;span class="go"&gt;lab-pc.umiacs.umd.edu has address 192.168.83.91&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The 192.168.0.0/16 block is not for public addresses, so this means you
-won't be able to directly talk to lab-pc.umiacs.umd.edu from outside of the
-UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.&lt;/p&gt;
+&lt;p&gt;The 192.168.0.0/16 block is a private IP block inside the UMIACS network, so
+this means you can't directly access lab-pc.umiacs.umd.edu from other
+networks. But some hosts on the UMIACS network, like
+openlab.umiacs.umd.edu, are publicly accessible:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; host openlab.umiacs.umd.edu
 &lt;span class="go"&gt;openlab.umiacs.umd.edu has address 128.8.132.247&lt;/span&gt;
 &lt;span class="go"&gt;openlab.umiacs.umd.edu has address 128.8.132.248&lt;/span&gt;
@@ -677,9 +685,9 @@ UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;But this is tedious because you have to go through openlab and enter your
-password twice.  Remote access to the lab machines would be much more
-convenient if you could avoid these two hassles.&lt;/p&gt;
+&lt;p&gt;And we're in!  Unfortunately this is tedious because you have to go through
+openlab and enter your password twice.  Accessing the lab machines remotely
+is much more convenient without these hassles, so let's get rid of them.&lt;/p&gt;
 &lt;h2&gt;Generate SSH key&lt;/h2&gt;
 &lt;p&gt;To avoid entering a password every time, you can create an ssh key.  There
 are many guides on this, like &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;this one from github&lt;/a&gt;.&lt;/p&gt;
@@ -694,9 +702,9 @@ are many guides on this, like &lt;a href="https://help.github.com/articles/gener
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now you can ssh to openlab without entering your password (depending on
-your OS, you may need to enter the passphrase for your ssh key, but you
-should only need to do this once).&lt;/p&gt;
+&lt;p&gt;Now you can ssh to openlab without entering your password (depending on your
+OS and system setup, you will need to enter the passphrase for your ssh key,
+but you should only need to do this once if you have an ssh agent running).&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh openlab.umiacs.umd.edu
 &lt;span class="gp"&gt;user@openlab.umiacs.umd.edu:~$&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -714,9 +722,13 @@ repeated for each host you'd like to be able to ssh to directly.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;Once you follow the steps above, you can ssh into a lab machine with one
-command and no ssh passwords.&lt;/p&gt;
+&lt;h2&gt;End result&lt;/h2&gt;
+&lt;p&gt;Once you generate an ssh key and add the proxy command above, you can ssh into
+a lab machine with a single command.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;user@home-pc:~$&lt;/span&gt; ssh lab-pc
 &lt;span class="gp"&gt;user@lab-pc.umiacs.umd.edu:~$&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry></feed>
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Updates&lt;/h4&gt;
+&lt;p&gt;6/20/13 - Reworded some sections for clarity.&lt;/p&gt;</summary></entry></feed>
