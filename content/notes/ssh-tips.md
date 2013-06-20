@@ -5,15 +5,24 @@ Author: Marco D. Adelfio
 Summary: Tips for SSH'ing around the lab machines.
 Category: Notes
 
-The lab machines do not have public IP addresses by default.
+*These are instructions for using ssh to access a machine that doesn't have a
+public IP address by going through one that does.  They're written for
+machines on the UMIACS network at UMD, but should apply generically.*
+
+<hr />
+
+Say you're on your home computer, which we'll call "home-pc", and want to ssh
+to a lab computer, "lab-pc".  You probably can't do this directly because most
+of the UMIACS lab machines don't have public IP addresses:
 
     :::console
     user@home-pc:~$ host lab-pc.umiacs.umd.edu
     lab-pc.umiacs.umd.edu has address 192.168.83.91
 
-The 192.168.0.0/16 block is not for public addresses, so this means you
-won't be able to directly talk to lab-pc.umiacs.umd.edu from outside of the
-UMIACS network.  But openlab.umiacs.umd.edu is publicly accessible.
+The 192.168.0.0/16 block is a private IP block inside the UMIACS network, so
+this means you can't directly access lab-pc.umiacs.umd.edu from other
+networks. But some hosts on the UMIACS network, like
+openlab.umiacs.umd.edu, are publicly accessible:
 
     :::console
     user@home-pc:~$ host openlab.umiacs.umd.edu
@@ -29,9 +38,9 @@ This means you can go through openlab to get to the lab machines.
     user@lab-pc.umiacs.umd.edu's password:
     user@lab-pc:~$
 
-But this is tedious because you have to go through openlab and enter your
-password twice.  Remote access to the lab machines would be much more
-convenient if you could avoid these two hassles.
+And we're in!  Unfortunately this is tedious because you have to go through
+openlab and enter your password twice.  Accessing the lab machines remotely
+is much more convenient without these hassles, so let's get rid of them.
 
 ## Generate SSH key
 
@@ -49,9 +58,9 @@ The short version is:
     user@home-pc:~$ ssh-copy-id user@openlab.umiacs.umd.edu
     user@openlab.umiacs.umd.edu's password:
 
-Now you can ssh to openlab without entering your password (depending on
-your OS, you may need to enter the passphrase for your ssh key, but you
-should only need to do this once).
+Now you can ssh to openlab without entering your password (depending on your
+OS and system setup, you will need to enter the passphrase for your ssh key,
+but you should only need to do this once if you have an ssh agent running).
 
     :::console
     user@home-pc:~$ ssh openlab.umiacs.umd.edu
@@ -69,13 +78,17 @@ repeated for each host you'd like to be able to ssh to directly.
       ForwardAgent yes
       ProxyCommand ssh openlab.umiacs.umd.edu nc %h %p
 
-## Conclusion
+## End result
 
-Once you follow the steps above, you can ssh into a lab machine with one
-command and no ssh passwords.
+Once you generate an ssh key and add the proxy command above, you can ssh into
+a lab machine with a single command.
 
     :::console
     user@home-pc:~$ ssh lab-pc
     user@lab-pc.umiacs.umd.edu:~$
+
+#### Updates
+
+6/20/13 - Reworded some sections for clarity.
 
 [1]: https://help.github.com/articles/generating-ssh-keys
