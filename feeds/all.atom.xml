@@ -1,38 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-03-15T16:19:00-04:00</updated><entry><title>How to add OAuth to a Node.js app using Passport</title><link href="http://umiacs.umd.edu/~marco/notes/node-auth" rel="alternate"></link><updated>2013-03-15T16:19:00-04:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-03-15:notes/node-auth</id><summary type="html">&lt;p&gt;I want to have usernames and sessions in some node.js apps.  Here's how I set
-it up using &lt;a href="http://passportjs.org/"&gt;Passport&lt;/a&gt; (which has a user guide, but does not seem to have a
-cookbook-like tutorial for getting everything set up).&lt;/p&gt;
-&lt;h2&gt;Install&lt;/h2&gt;
-&lt;p&gt;First install Passport and the Google "Strategy" (not a fan of this name):&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; npm install passport passport-google
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Files&lt;/h2&gt;
-&lt;p&gt;You will be editing app.js and adding several files to your app:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="go"&gt;./my-app&lt;/span&gt;
-&lt;span class="go"&gt;├── app.js  (Modify existing)&lt;/span&gt;
-&lt;span class="go"&gt;├── auth.js&lt;/span&gt;
-&lt;span class="go"&gt;├── public&lt;/span&gt;
-&lt;span class="go"&gt;│   └── images&lt;/span&gt;
-&lt;span class="go"&gt;│       └── google.png&lt;/span&gt;
-&lt;span class="go"&gt;└── views&lt;/span&gt;
-&lt;span class="go"&gt;    ├── login.ejs&lt;/span&gt;
-&lt;span class="go"&gt;    └── unauthorized.ejs&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4&gt;App.js&lt;/h4&gt;
-&lt;p&gt;First, require passport, passport-google (or other strategies), and the
-soon-to-be-created &lt;code&gt;auth.js&lt;/code&gt;:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;fs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="nx"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="p"&gt;...&lt;/span&gt;
-    &lt;span class="cm"&gt;/* Authentication */&lt;/span&gt;
-    &lt;span class="nx"&gt;passport&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="nx"&gt;GoogleStrategy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;passport-google&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-    &lt;span class="nx"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;./auth&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-23:notes/av-williams-building</id><summary type="html">&lt;style&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-23T14:46:00-05:00</updated><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-23:notes/av-williams-building</id><summary type="html">&lt;style&gt;
   svg {height:665px; width:750px;}
   #floorplan-wrapper {
     background-color:#fff;
