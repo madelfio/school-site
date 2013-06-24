@@ -222,6 +222,10 @@ this set of labels covers the vast majority of rows with little ambiguity.
 <div id="experiments" class="section" markdown="1">
 ##Experiments
 
+<!--- Put an animation here for the Automaton Method, stepping through the
+rows of the table and simultaneously highlighting the state in the automaton
+state machine  --->
+
 </div>
 <div id="conclusions" class="section" markdown="1">
 ##Conclusions
