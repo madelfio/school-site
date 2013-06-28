@@ -78,6 +78,12 @@ repeated for each host you'd like to be able to ssh to directly.
       ForwardAgent yes
       ProxyCommand ssh openlab.umiacs.umd.edu nc %h %p
 
+If you have a username (e.g., USERNAME) on the lab-pc and/or the intermediate
+machine that's different from your username on your home-pc, you can add the
+line `User USERNAME` within this section of your config and update the
+ProxyCommand line with `USERNAME@openlab...` to get ssh to use the correct
+one.
+
 ## End result
 
 Once you generate an ssh key and add the proxy command above, you can ssh into
