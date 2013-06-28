@@ -212,6 +212,10 @@ this set of labels covers the vast majority of rows with little ambiguity.&lt;/p
 &lt;div id="experiments" class="section"&gt;
 
 &lt;h2&gt;Experiments&lt;/h2&gt;
+&lt;!--- Put an animation here for the Automaton Method, stepping through the
+rows of the table and simultaneously highlighting the state in the automaton
+state machine  ---&gt;
+
 &lt;/div&gt;
 
 &lt;div id="conclusions" class="section"&gt;

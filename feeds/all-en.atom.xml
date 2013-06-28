@@ -299,6 +299,10 @@ this set of labels covers the vast majority of rows with little ambiguity.&lt;/p
 &lt;div id="experiments" class="section"&gt;
 
 &lt;h2&gt;Experiments&lt;/h2&gt;
+&lt;!--- Put an animation here for the Automaton Method, stepping through the
+rows of the table and simultaneously highlighting the state in the automaton
+state machine  ---&gt;
+
 &lt;/div&gt;
 
 &lt;div id="conclusions" class="section"&gt;
@@ -689,6 +693,11 @@ repeated for each host you'd like to be able to ssh to directly.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;If you have a username (e.g., USERNAME) on the lab-pc and/or the intermediate
+machine that's different from your username on your home-pc, you can add the
+line &lt;code&gt;User USERNAME&lt;/code&gt; within this section of your config and update the
+ProxyCommand line with &lt;code&gt;USERNAME@openlab...&lt;/code&gt; to get ssh to use the correct
+one.&lt;/p&gt;
 &lt;h2&gt;End result&lt;/h2&gt;
 &lt;p&gt;Once you generate an ssh key and add the proxy command above, you can ssh into
 a lab machine with a single command.&lt;/p&gt;

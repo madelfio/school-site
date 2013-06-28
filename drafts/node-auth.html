@@ -40,10 +40,13 @@
 
     <div class="entry-content">
       <p>I want to have usernames and sessions in some node.js apps.  Here's how I set
-it up using <a href="http://passportjs.org/">Passport</a> (which has a user guide, but does not seem to have a
-cookbook-like tutorial for getting everything set up).</p>
+it up using <a href="http://passportjs.org/">Passport</a> (which has a user guide, including a <a href="http://passportjs.org/guide/google/">section on
+Google OpenID</a>, but does not seem to have a cookbook-like tutorial for getting
+everything set up).</p>
 <h2>Install</h2>
-<p>First install Passport and the Google "Strategy" (not a fan of this name):</p>
+<p>First install Passport and the Google "Strategy" (not a fan of this name).
+You can install other strategies from the list here if you have other OpenID
+endpoints to use:</p>
 <div class="codehilite"><pre><span class="gp">$</span> npm install passport passport-google
 </pre></div>
 
@@ -62,7 +65,70 @@ cookbook-like tutorial for getting everything set up).</p>
 </pre></div>
 
 
-<h4>App.js</h4>
+<h3>app.js</h3>
+<p>In app.js, we (1) require auth.js:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">),</span>
+    <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">),</span>
+    <span class="p">...</span>
+    <span class="cm">/* Authentication */</span>
+    <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./auth&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>(2) initialize it:</p>
+<div class="codehilite"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">session</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">setup</span><span class="p">());</span>
+</pre></div>
+
+
+<p>(3) add routes:</p>
+<div class="codehilite"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/auth/google&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">google</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/auth/google/return&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">google_return</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;/login&#39;</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">logout</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/unauthorized&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">unauthorized</span><span class="p">());</span>
+</pre></div>
+
+
+<p>(4) require authentication for some pages (if necessary):</p>
+<div class="codehilite"><pre><span class="cm">/* existing routes */</span>
+<span class="n">app</span><span class="p">.</span><span class="n">get</span><span class="p">(&#39;</span><span class="o">/</span><span class="n">some_page</span><span class="p">&#39;,</span> <span class="n">auth</span><span class="p">.</span><span class="n">check</span><span class="p">(),</span> <span class="n">some_route_func</span><span class="p">);</span>
+</pre></div>
+
+
+<h3>auth.js</h3>
+<p>We put all the real logic and interface with passport and passport-google in
+auth.js.</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">passport</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport&#39;</span><span class="p">),</span>
+    <span class="nx">GoogleStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-google&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">returnURL</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/auth/google/return&#39;</span><span class="p">,</span>
+    <span class="nx">realm</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/&#39;</span><span class="p">,</span>
+    <span class="nx">goog_auth_settings</span> <span class="o">=</span> <span class="p">{</span><span class="nx">returnURL</span><span class="o">:</span> <span class="nx">returnURL</span><span class="p">,</span> <span class="nx">realm</span><span class="o">:</span> <span class="nx">realm</span><span class="p">},</span>
+    <span class="nx">authHandler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">identifier</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">profile</span><span class="p">.</span><span class="nx">identifier</span> <span class="o">=</span> <span class="nx">identifier</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">profile</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">serializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">);});</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">deserializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);});</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">GoogleStrategy</span><span class="p">(</span><span class="nx">goog_auth_settings</span><span class="p">,</span> <span class="nx">authHandler</span><span class="p">));</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">initialize</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">session</span> <span class="o">=</span> <span class="nx">passport</span><span class="p">.</span><span class="nx">session</span><span class="p">;</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">setup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">user</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">next</span><span class="p">();</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">google</span> <span class="o">=</span>
+</pre></div>
+
+
 <p>First, require passport, passport-google (or other strategies), and the
 soon-to-be-created <code>auth.js</code>:</p>
 <div class="codehilite"><pre><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">),</span>
@@ -72,6 +138,50 @@ soon-to-be-created <code>auth.js</code>:</p>
     <span class="nx">passport</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport&#39;</span><span class="p">),</span>
     <span class="nx">GoogleStrategy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-google&#39;</span><span class="p">),</span>
     <span class="nx">auth</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./auth&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>You need to enable the GoogleStrategy by adding this before setting up Express
+to use Passport.  This simply saves the username in profile.identifier and
+does not persist it to storage:</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">returnURL</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/auth/google/return&#39;</span><span class="p">,</span>
+    <span class="nx">realm</span> <span class="o">=</span> <span class="s1">&#39;http://example.com/&#39;</span><span class="p">,</span>
+    <span class="nx">goog_auth_settings</span> <span class="o">=</span> <span class="p">{</span><span class="nx">returnURL</span><span class="o">:</span> <span class="nx">returnURL</span><span class="p">,</span> <span class="nx">realm</span><span class="o">:</span> <span class="nx">realm</span><span class="p">},</span>
+    <span class="nx">authHandler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">identifier</span><span class="p">,</span> <span class="nx">profile</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">profile</span><span class="p">.</span><span class="nx">identifier</span> <span class="o">=</span> <span class="nx">identifier</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">profile</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">serializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">user</span><span class="p">);});</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">deserializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);});</span>
+<span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="k">new</span> <span class="nx">GoogleStrategy</span><span class="p">(</span><span class="nx">goog_auth_settings</span><span class="p">,</span> <span class="nx">authHandler</span><span class="p">));</span>
+</pre></div>
+
+
+<p>Add these lines to enable passport, after a call to
+<code>app.use(express.session())</code> (Marco: is <code>express.session()</code> required?):</p>
+<div class="codehilite"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">session</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">auth</span><span class="p">.</span><span class="nx">setup</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Then add these among/after your routes:</p>
+<div class="codehilite"><pre><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/auth/google&#39;</span><span class="p">,</span>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/site/login&#39;</span><span class="p">});</span>
+<span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/auth/google/return&#39;</span><span class="p">,</span>
+  <span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">successReturnToOrRedirect</span><span class="o">:</span> <span class="s1">&#39;/site/&#39;</span><span class="p">,</span>
+    <span class="nx">failureRedirect</span><span class="o">:</span> <span class="s1">&#39;/site/login&#39;</span>
+  <span class="p">}),</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span><span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/site/&#39;</span><span class="p">);}</span>
+<span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/logout&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">logout</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/unauthorized&#39;</span><span class="p">,</span> <span class="nx">auth</span><span class="p">.</span><span class="nx">unauthorized</span><span class="p">);</span>
 </pre></div>
       <footer class="post-info">
         Posted:
