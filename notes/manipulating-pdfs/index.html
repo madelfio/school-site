@@ -45,7 +45,7 @@ you need to extract or combine parts of documents <em>at the page level</em>,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my <code>.bashrc</code> for
 this.</p>
-<div class="codehilite"><pre><span class="c"># source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf</span>
+<div class="highlight"><pre><span class="c"># source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf</span>
 <span class="k">function </span>pdfextract<span class="o">()</span>
 <span class="o">{</span>
   <span class="c"># arguments:</span>
@@ -76,7 +76,7 @@ this.</p>
 
 <h4>Examples</h4>
 <p>You can use <code>pdfextract</code> to extract pages 1-3 of a PDF:</p>
-<div class="codehilite"><pre><span class="gp">$</span> ls
+<div class="highlight"><pre><span class="gp">$</span> ls
 <span class="go">my-long-document.pdf</span>
 <span class="gp">$</span> pdfextract 1 3 ./my-long-document.pdf
 <span class="gp">$</span> ls
@@ -85,7 +85,7 @@ this.</p>
 
 
 <p>Or use <code>pdfmerge</code> to merge a cover letter, proposal, and CV into a single PDF:</p>
-<div class="codehilite"><pre><span class="gp">$</span> ls
+<div class="highlight"><pre><span class="gp">$</span> ls
 <span class="go">cover-letter.pdf  cv.pdf  proposal.pdf</span>
 <span class="gp">$</span> pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
 <span class="gp">$</span> ls

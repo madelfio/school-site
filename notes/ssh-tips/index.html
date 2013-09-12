@@ -48,7 +48,7 @@ machines on the UMIACS network at UMD, but should apply generically.</em></p>
 <p>Say you're on your home computer, which we'll call "home-pc", and want to ssh
 to a lab computer, "lab-pc".  You probably can't do this directly because most
 of the UMIACS lab machines don't have public IP addresses:</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> host lab-pc.umiacs.umd.edu
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> host lab-pc.umiacs.umd.edu
 <span class="go">lab-pc.umiacs.umd.edu has address 192.168.83.91</span>
 </pre></div>
 
@@ -57,14 +57,14 @@ of the UMIACS lab machines don't have public IP addresses:</p>
 this means you can't directly access lab-pc.umiacs.umd.edu from other
 networks. But some hosts on the UMIACS network, like
 openlab.umiacs.umd.edu, are publicly accessible:</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> host openlab.umiacs.umd.edu
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> host openlab.umiacs.umd.edu
 <span class="go">openlab.umiacs.umd.edu has address 128.8.132.247</span>
 <span class="go">openlab.umiacs.umd.edu has address 128.8.132.248</span>
 </pre></div>
 
 
 <p>This means you can go through openlab to get to the lab machines.</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> ssh openlab.umiacs.umd.edu
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> ssh openlab.umiacs.umd.edu
 <span class="go">user@openlab.umiacs.umd.edu&#39;s password:</span>
 <span class="gp">user@opensub00:~$</span> ssh lab-pc.umiacs.umd.edu
 <span class="go">user@lab-pc.umiacs.umd.edu&#39;s password:</span>
@@ -79,7 +79,7 @@ is much more convenient without these hassles, so let's get rid of them.</p>
 <p>To avoid entering a password every time, you can create an ssh key.  There
 are many guides on this, like <a href="https://help.github.com/articles/generating-ssh-keys">this one from github</a>.</p>
 <p>The short version is:</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> ssh-keygen -t rsa
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> ssh-keygen -t rsa
 <span class="go">Generating public/private rsa key pair.</span>
 <span class="go">Enter file in which to save the key (/home/user/.ssh/id_rsa):</span>
 <span class="go">Enter passphrase (empty for no passphrase): [Type a passphrase]</span>
@@ -92,7 +92,7 @@ are many guides on this, like <a href="https://help.github.com/articles/generati
 <p>Now you can ssh to openlab without entering your password (depending on your
 OS and system setup, you will need to enter the passphrase for your ssh key,
 but you should only need to do this once if you have an ssh agent running).</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> ssh openlab.umiacs.umd.edu
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> ssh openlab.umiacs.umd.edu
 <span class="gp">user@openlab.umiacs.umd.edu:~$</span>
 </pre></div>
 
@@ -102,7 +102,7 @@ but you should only need to do this once if you have an ssh agent running).</p>
 the process with an ssh "ProxyCommand".  Add the following lines to your
 ~/.ssh/config file on your remote computer (create it if it doesn't exist),
 repeated for each host you'd like to be able to ssh to directly.</p>
-<div class="codehilite"><pre><span class="n">Host</span> <span class="n">lab</span><span class="o">-</span><span class="n">pc</span>
+<div class="highlight"><pre><span class="n">Host</span> <span class="n">lab</span><span class="o">-</span><span class="n">pc</span>
   <span class="n">Hostname</span> <span class="n">lab</span><span class="o">-</span><span class="n">pc</span><span class="p">.</span><span class="n">umiacs</span><span class="p">.</span><span class="n">umd</span><span class="p">.</span><span class="n">edu</span>
   <span class="n">ForwardAgent</span> <span class="n">yes</span>
   <span class="n">ProxyCommand</span> <span class="n">ssh</span> <span class="n">openlab</span><span class="p">.</span><span class="n">umiacs</span><span class="p">.</span><span class="n">umd</span><span class="p">.</span><span class="n">edu</span> <span class="n">nc</span> <span class="o">%</span><span class="n">h</span> <span class="o">%</span><span class="n">p</span>
@@ -117,7 +117,7 @@ one.</p>
 <h2>End result</h2>
 <p>Once you generate an ssh key and add the proxy command above, you can ssh into
 a lab machine with a single command.</p>
-<div class="codehilite"><pre><span class="gp">user@home-pc:~$</span> ssh lab-pc
+<div class="highlight"><pre><span class="gp">user@home-pc:~$</span> ssh lab-pc
 <span class="gp">user@lab-pc.umiacs.umd.edu:~$</span>
 </pre></div>
 

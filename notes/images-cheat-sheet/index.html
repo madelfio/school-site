@@ -40,45 +40,45 @@
 
     <div class="entry-content">
       <h3>Read image information (size, encoding information)</h3>
-<div class="codehilite"><pre><span class="gp">$</span> file example.png
+<div class="highlight"><pre><span class="gp">$</span> file example.png
 <span class="gp">$</span> identify example.png  <span class="c"># (also works with jpegs)</span>
 </pre></div>
 
 
 <h3>Resize image</h3>
 <p>Resize to 200x200 pixels.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize 200x200 example.png
+<div class="highlight"><pre><span class="gp">$</span> convert example.png -resize 200x200 example.png
 </pre></div>
 
 
 <p>Resize width to 200, preserving aspect ratio.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize 200 example.png
+<div class="highlight"><pre><span class="gp">$</span> convert example.png -resize 200 example.png
 </pre></div>
 
 
 <p>Resize height to 200, preserving aspect ratio.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -resize x200 example.png
+<div class="highlight"><pre><span class="gp">$</span> convert example.png -resize x200 example.png
 </pre></div>
 
 
 <h3>Crop image</h3>
 <p>Crop to 100x100 pixels, starting from pixel (5, 5), then resize canvas to
 match result.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -crop 100x100+5+5 +repage example.png
+<div class="highlight"><pre><span class="gp">$</span> convert example.png -crop 100x100+5+5 +repage example.png
 </pre></div>
 
 
 <h3>Resize and crop from center</h3>
 <p>This is helpful if you want a thumbnail of a certain size, regardless of the
 original aspect ratio (<a href="http://www.imagemagick.org/script/command-line-processing.php?ImageMagick=45bcl1a3agvbinon3bgbll7l16#geometry">doc</a>).</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.jpg -resize 200x100^ -gravity center <span class="se">\</span>
+<div class="highlight"><pre><span class="gp">$</span> convert example.jpg -resize 200x100^ -gravity center <span class="se">\</span>
 <span class="go">                      -crop 200x100+0+0 +repage example.jpg</span>
 </pre></div>
 
 
 <h3>Add border</h3>
 <p>Add gray border, 1 pixel wide.</p>
-<div class="codehilite"><pre><span class="gp">$</span> convert example.png -border 1 -bordercolor gray example.png
+<div class="highlight"><pre><span class="gp">$</span> convert example.png -border 1 -bordercolor gray example.png
 </pre></div>
 
 
