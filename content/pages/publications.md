@@ -4,7 +4,8 @@ Title: Publications
 
 - M. D. Adelfio and H. Samet. Schema extraction for tabular data on the
   web.  In PVLDB'13: Proceedings of the 39th International Conference on Very
-  Large Data Bases, Volume 6, Number 6, April 2013, pages 421-432. [[PDF][9]]
+  Large Data Bases, Volume 6, Number 6, April 2013, pages 421-432.
+  [[PDF][9],[Slides][9s]]
 - S. Nutanong, M. D. Adelfio, and H. Samet. An efficient layout method for
   a large collection of geographic data entries. In EDBT'13: Proceedings of
   the 16th International Conference on Extending Database Technology, pages
@@ -43,6 +44,7 @@ Title: Publications
 
 </div>
 
+[9s]: |filename|/papers/slides-vldb13-tables.pdf
 [9]: |filename|/papers/vldb13-tables.pdf
 [8]: |filename|/papers/edbt13-layout.pdf
 [7]: |filename|/papers/acmgis12-distinctiveness.pdf
