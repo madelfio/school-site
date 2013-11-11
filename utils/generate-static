@@ -8,7 +8,7 @@ set -e
 
 if [ "$(git symbolic-ref HEAD)" == "refs/heads/master" ]; then
   TEMP_DIR=$(mktemp -d)
-  PELICAN=$HOME/.virtualenvs/pelican/bin/pelican
+  PELICAN=$HOME/.virtualenvs/school-site/bin/pelican
   GHPIMPORT=$HOME/.virtualenvs/ghpages/bin/ghp-import
   MESSAGE=$(git log -1 HEAD --pretty=format:%s)
 
