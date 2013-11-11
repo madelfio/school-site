@@ -3,7 +3,7 @@ Title: Links
 #####News
 - [UMD NewsStand](http://newsstand.umiacs.umd.edu/)
 - [Hacker News](http://news.ycombinator.com/)
-- [Google Reader](http://reader.google.com/)
+- [The Old Reader (my preferred successor to Google News)](http://theoldreader.com/)
 
 #####Other
 - [A.V. Williams Floor Plans](|filename|/random/floorplans.md)
