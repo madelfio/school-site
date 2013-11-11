@@ -2,6 +2,14 @@ Title: Publications
 
 <div class="pubs" markdown="1">
 
+- M. D. Adelfio and H. Samet. Structured Toponym Resolution Using Combined
+  Hierarchical Place Categories.  In GIR'13: Proceedings of the 7th ACM
+  SIGSPATIAL Workshop on Geographic Information Retrieval, Orlando, CA,
+  November 2013. [[PDF][11],[Slides][11s]]
+- M. D. Adelfio and H. Samet. GeoWhiz: Toponym Resolution Using Common
+  Categories.  In SIGSPATIAL'13: Proceedings of the 21st ACM SIGSPATIAL
+  International Conference on Advances in Geographic Information Systems,
+  pages 542-545, Orlando, CA, November 2013. [[PDF][10],[Poster][10p]]
 - M. D. Adelfio and H. Samet. Schema extraction for tabular data on the
   web.  In PVLDB'13: Proceedings of the 39th International Conference on Very
   Large Data Bases, Volume 6, Number 6, April 2013, pages 421-432.
@@ -44,6 +52,10 @@ Title: Publications
 
 </div>
 
+[11s]: |filename|/papers/slides-gir13-table-toponyms.pdf
+[11]: |filename|/papers/gir13-table-toponyms.pdf
+[10p]: |filename|/papers/poster-sigspatial13-geowhiz.pdf
+[10]: |filename|/papers/sigspatial13-geowhiz.pdf
 [9s]: |filename|/papers/slides-vldb13-tables.pdf
 [9]: |filename|/papers/vldb13-tables.pdf
 [8]: |filename|/papers/edbt13-layout.pdf
