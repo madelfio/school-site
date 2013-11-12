@@ -43,7 +43,7 @@ var floors = svg.selectAll('g.floor').data(floor_numbers)
   .attr('opacity', 1.0);
 
 var imgs = floors.append('image')
-  .attr('xlink:href', function (d) {return siteurl + '/static/files/floorplans/115-' + d + '-transparent.png';})
+  .attr('xlink:href', function (d) {return siteurl + '/files/floorplans/115-' + d + '-transparent.png';})
   .attr('x', 0)
   .attr('y', 0)
   .attr('height', 350)
