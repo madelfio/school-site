@@ -52,7 +52,11 @@ serve:
 	cd $(OUTPUTDIR) && python -m SimpleHTTPServer
 
 devserver:
+ifdef PORT
+	$(BASEDIR)/develop_server.sh restart $(PORT)
+else
 	$(BASEDIR)/develop_server.sh restart
+endif
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)

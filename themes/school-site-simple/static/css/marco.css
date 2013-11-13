@@ -153,12 +153,25 @@ header#banner li {
 .readmore {display: none;}
 
 .pubs {
-  text-align: justify;
+  margin-top: 2ex;
+  padding-right: 2px;
   word-spacing: 1px;
+  background-color:#f6f6f6;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.pubs ol {
+  margin-top: 0px;
+  margin-left: 2.5em;
 }
 
 .pubs li {
   margin-top: 10px;
+}
+
+.pubs a {
+  color: #66A;
 }
 
 .entry-header .entry-title, .entry-header .entry-subtitle {
