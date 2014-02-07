@@ -82,8 +82,14 @@ original aspect ratio (<a href="http://www.imagemagick.org/script/command-line-p
 </pre></div>
 
 
-<h4>Updates</h4>
-<p><em>3/20/13</em> - Added cropping and border examples</p>
+<h3>Idempotent changes</h3>
+<p>Use this if you don't want to mess with image file timestamps, so the
+conversion can be run multiple times without subsequent runs modifying out.png
+(unless in.png changes).  This is useful if output images are stored in git
+repository and you don't want to keep committing updates when only the dates
+change. From <a href="http://stackoverflow.com/questions/13577280/">StackOverflow</a>.</p>
+<div class="highlight"><pre><span class="gp">$</span> convert in.png +set date:create +set date:modify ... out.png
+</pre></div>
 <footer class="post-info">
         Posted:
         <abbr class="published" title="2013-02-08T13:10:00">

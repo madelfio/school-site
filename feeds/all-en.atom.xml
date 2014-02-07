@@ -573,8 +573,14 @@ original aspect ratio (&lt;a href="http://www.imagemagick.org/script/command-lin
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;Updates&lt;/h4&gt;
-&lt;p&gt;&lt;em&gt;3/20/13&lt;/em&gt; - Added cropping and border examples&lt;/p&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+&lt;h3&gt;Idempotent changes&lt;/h3&gt;
+&lt;p&gt;Use this if you don't want to mess with image file timestamps, so the
+conversion can be run multiple times without subsequent runs modifying out.png
+(unless in.png changes).  This is useful if output images are stored in git
+repository and you don't want to keep committing updates when only the dates
+change. From &lt;a href="http://stackoverflow.com/questions/13577280/"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert in.png +set date:create +set date:modify ... out.png
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for
