@@ -51,6 +51,13 @@ Add gray border, 1 pixel wide.
     :::console
     $ convert example.png -border 1 -bordercolor gray example.png
 
-####Updates
+### Idempotent changes
 
-*3/20/13* - Added cropping and border examples
+Use this if you don't want to mess with image file timestamps, so the
+conversion can be run multiple times without subsequent runs modifying out.png
+(unless in.png changes).  This is useful if output images are stored in git
+repository and you don't want to keep committing updates when only the dates
+change. From [StackOverflow](http://stackoverflow.com/questions/13577280/).
+
+    :::console
+    $ convert in.png +set date:create +set date:modify ... out.png
