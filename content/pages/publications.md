@@ -6,7 +6,7 @@ Title: Publications
    Itinerary Retrieval: Travelers, like Traveling Salesmen, Prefer Efficient
    Routes.  
    In *GIR'14: Proceedings of the 8th ACM SIGSPATIAL Workshop on Geographic
-   Information Retrieval (GIR'14), Dallas, TX, November 2014.  
+   Information Retrieval (GIR'14)*, Dallas, TX, November 2014.  
    [[PDF][16], [Slides][16s]]
 
 1. M. D. Adelfio, H. Samet.  
