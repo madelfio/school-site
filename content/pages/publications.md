@@ -48,10 +48,21 @@ Title: Publications
    Orlando, CA, November 2013.  
    [[PDF][10], [Poster][10p]]
 
+1. B. E. Teitler, J. Sankaranarayanan, H. Samet, M. D. Adelfio.  
+   Online Document Clustering Using GPUs.  
+   In *GID'13: Proceedings of the 2nd International ADBIS Workshop on GPUs in
+   Databases*, Genoa, Italy, August 2010.  
+
+1. H. Samet, M. D. Adelfio, B. C. Fruin, M. D. Lieberman, J. Sankaranarayanan.  
+   PhotoStand: A Map Query Interface for a Database of News Photos.  
+   *PVLDB*, 6(12):1350-1353, August 2013.  Also *Proceedings of the 39th
+   International Conference on Very Large Data Bases*.  
+   [[PDF][a1]]
+
 1. M. D. Adelfio and H. Samet.  
    Schema Extraction for Tabular Data on the Web.  
    *PVLDB*, 6(6):421-432, April 2013.  Also *Proceedings of the 39th
-   International Converence on Very Large Data Bases*.
+   International Conference on Very Large Data Bases*.
    [[PDF][9], [Slides][9s]]
 
 1. S. Nutanong, M. D. Adelfio, and H. Samet.  
@@ -119,6 +130,7 @@ Title: Publications
 [11]: |filename|/papers/gir13-table-toponyms.pdf
 [10p]: |filename|/papers/poster-sigspatial13-geowhiz.pdf
 [10]: |filename|/papers/sigspatial13-geowhiz.pdf
+[a1]: |filename|/papers/vldb13-photostand.pdf
 [9s]: |filename|/papers/slides-vldb13-tables.pdf
 [9]: |filename|/papers/vldb13-tables.pdf
 [8]: |filename|/papers/edbt13-layout.pdf
