@@ -2,6 +2,38 @@ Title: Publications
 
 <div class="pubs" markdown="1">
 
+1. M. D. Adelfio, H. Samet.  
+   Itinerary Retrieval: Travelers, like Traveling Salesmen, Prefer Efficient
+   Routes.  
+   In *GIR'14: Proceedings of the 8th ACM SIGSPATIAL Workshop on Geographic
+   Information Retrieval (GIR'14), Dallas, TX, November 2014.  
+   [[PDF][16], [Slides][16s]]
+
+1. M. D. Adelfio, H. Samet.  
+   Automated Tabular Itinerary Visualization.  
+   In *SIGSPATIAL'14: Proceedings of the 22nd ACM SIGSPATIAL International
+   Conference on Advances in Geographic Information Systems*, pages 593-596,
+   Dallas, TX, November 2014.  
+   [[PDF][15], [Poster][15p]]
+
+1. S. Peng, H. Samet, M. D. Adelfio.  
+   Viewing Streaming Spatially-Referenced Data at Interactive Rates.  
+   In *SIGSPATIAL'14: Proceedings of the 22nd ACM SIGSPATIAL International
+   Conference on Advances in Geographic Information Systems*, pages 409-412,
+   Dallas, TX, November 2014.
+
+1. R. Lan, M. D. Adelfio, H. Samet.  
+   Spatio-Temporal Disease Tracking Using News Articles.  
+   In *HealthGIS'14: Proceedings of the 3rd ACM SIGSPATIAL Workshop on the Use
+   of GIS in Public Health*, Dallas, TX, November 2014.  
+   [[PDF][13]]
+
+1. H. Samet, J. Sankaranarayanan, M. D. Lieberman, M. D. Adelfio, B. C. Fruin,
+   J. M. Lotkowski, D. Panozzo, J. Sperling, B. E. Teitler.  
+   Reading News with Maps by Exploiting Spatial Synonyms.  
+   *Communications of the ACM*, 57(10):64-77, October 2014.  
+   [[PDF][12]]
+
 1. M. D. Adelfio and H. Samet.  
    Structured Toponym Resolution Using Combined Hierarchical Place Categories.  
    In *GIR'13: Proceedings of the 7th ACM SIGSPATIAL Workshop on Geographic
@@ -18,8 +50,8 @@ Title: Publications
 
 1. M. D. Adelfio and H. Samet.  
    Schema Extraction for Tabular Data on the Web.  
-   In *PVLDB'13: Proceedings of the 39th International Conference on Very Large
-   Data Bases*, Volume 6, Number 6, April 2013, pages 421-432.  
+   *PVLDB*, 6(6):421-432, April 2013.  Also *Proceedings of the 39th
+   International Converence on Very Large Data Bases*.
    [[PDF][9], [Slides][9s]]
 
 1. S. Nutanong, M. D. Adelfio, and H. Samet.  
@@ -76,6 +108,13 @@ Title: Publications
 
 </div>
 
+[16s]: |filename|/papers/gir14-itineraries-slides.pdf
+[16]: |filename|/papers/gir14-itineraries.pdf
+[15p]: |filename|/papers/sigspatial14-itinerary-layout-poster.pdf
+[15]: |filename|/papers/sigspatial14-itinerary-layout.pdf
+
+[13]: |filename|/papers/healthgis14-disease-tracking.pdf
+[12]: http://www.cs.umd.edu/~hjs/pubs/cacm-newsstand.pdf
 [11s]: |filename|/papers/slides-gir13-table-toponyms.pdf
 [11]: |filename|/papers/gir13-table-toponyms.pdf
 [10p]: |filename|/papers/poster-sigspatial13-geowhiz.pdf
