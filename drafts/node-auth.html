@@ -34,7 +34,7 @@
   <article>
     <header class="entry-header">
       <h1 class="entry-title">
-        <a href="http://umiacs.umd.edu/~marco/notes/node-auth" rel="bookmark"
+        <a href="http://umiacs.umd.edu/~marco/drafts/node-auth.html" rel="bookmark"
            title="Permalink to How to add OAuth to a Node.js app using Passport">How to add OAuth to a Node.js app using Passport</a></h1>
     </header>
 
@@ -91,8 +91,8 @@ endpoints to use:</p>
 
 
 <p>(4) require authentication for some pages (if necessary):</p>
-<div class="highlight"><pre><span class="cm">/* existing routes */</span>
-<span class="n">app</span><span class="p">.</span><span class="n">get</span><span class="p">(&#39;</span><span class="o">/</span><span class="n">some_page</span><span class="p">&#39;,</span> <span class="n">auth</span><span class="p">.</span><span class="n">check</span><span class="p">(),</span> <span class="n">some_route_func</span><span class="p">);</span>
+<div class="highlight"><pre><span class="cm">/* existing routes */</span><span class="w"></span>
+app<span class="o">.</span>get<span class="o">(</span><span class="s">&#39;/some_page&#39;</span><span class="o">,</span><span class="w"> </span>auth<span class="o">.</span>check<span class="o">(),</span><span class="w"> </span>some_route_func<span class="o">)</span><span class="err">;</span><span class="w"></span>
 </pre></div>
 
 
@@ -185,7 +185,7 @@ does not persist it to storage:</p>
 </pre></div>
 <footer class="post-info">
         Posted:
-        <abbr class="published" title="2013-03-15T16:19:00">
+        <abbr class="published" title="2013-03-15T16:19:00-04:00">
                 Mar 15, 2013
         </abbr>
 

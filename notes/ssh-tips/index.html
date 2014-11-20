@@ -102,10 +102,10 @@ but you should only need to do this once if you have an ssh agent running).</p>
 the process with an ssh "ProxyCommand".  Add the following lines to your
 ~/.ssh/config file on your remote computer (create it if it doesn't exist),
 repeated for each host you'd like to be able to ssh to directly.</p>
-<div class="highlight"><pre><span class="n">Host</span> <span class="n">lab</span><span class="o">-</span><span class="n">pc</span>
-  <span class="n">Hostname</span> <span class="n">lab</span><span class="o">-</span><span class="n">pc</span><span class="p">.</span><span class="n">umiacs</span><span class="p">.</span><span class="n">umd</span><span class="p">.</span><span class="n">edu</span>
-  <span class="n">ForwardAgent</span> <span class="n">yes</span>
-  <span class="n">ProxyCommand</span> <span class="n">ssh</span> <span class="n">openlab</span><span class="p">.</span><span class="n">umiacs</span><span class="p">.</span><span class="n">umd</span><span class="p">.</span><span class="n">edu</span> <span class="n">nc</span> <span class="o">%</span><span class="n">h</span> <span class="o">%</span><span class="n">p</span>
+<div class="highlight"><pre>Host lab-pc
+  Hostname lab-pc.umiacs.umd.edu
+  ForwardAgent yes
+  ProxyCommand ssh openlab.umiacs.umd.edu nc %h %p
 </pre></div>
 
 
@@ -126,7 +126,7 @@ a lab machine with a single command.</p>
 <p>6/20/13 - Reworded some sections for clarity.</p>
 <footer class="post-info">
         Posted:
-        <abbr class="published" title="2013-02-07T23:47:00">
+        <abbr class="published" title="2013-02-07T23:47:00-05:00">
                 Feb 07, 2013
         </abbr>
 

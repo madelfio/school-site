@@ -46,7 +46,7 @@ sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my <code>.bashrc</code> for
 this.</p>
 <div class="highlight"><pre><span class="c"># source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf</span>
-<span class="k">function </span>pdfextract<span class="o">()</span>
+<span class="k">function</span> pdfextract<span class="o">()</span>
 <span class="o">{</span>
   <span class="c"># arguments:</span>
   <span class="c">#   $1 is the first page of the range to extract</span>
@@ -54,18 +54,18 @@ this.</p>
   <span class="c">#   $3 is the input file</span>
   <span class="c">#   output file will be named &quot;inputfile_pXX-pYY.pdf&quot;</span>
   gs -sDEVICE<span class="o">=</span>pdfwrite -dNOPAUSE -dBATCH -dSAFER <span class="se">\</span>
-  -dFirstPage<span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span> -dLastPage<span class="o">=</span><span class="k">${</span><span class="nv">2</span><span class="k">}</span> <span class="se">\</span>
-  -sOutputFile<span class="o">=</span><span class="k">${</span><span class="nv">3</span><span class="p">%.pdf</span><span class="k">}</span>_p<span class="k">${</span><span class="nv">1</span><span class="k">}</span>-p<span class="k">${</span><span class="nv">2</span><span class="k">}</span>.pdf <span class="se">\</span>
-  <span class="k">${</span><span class="nv">3</span><span class="k">}</span>
+  -dFirstPage<span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span> -dLastPage<span class="o">=</span><span class="si">${</span><span class="nv">2</span><span class="si">}</span> <span class="se">\</span>
+  -sOutputFile<span class="o">=</span><span class="si">${</span><span class="nv">3</span><span class="p">%.pdf</span><span class="si">}</span>_p<span class="si">${</span><span class="nv">1</span><span class="si">}</span>-p<span class="si">${</span><span class="nv">2</span><span class="si">}</span>.pdf <span class="se">\</span>
+  <span class="si">${</span><span class="nv">3</span><span class="si">}</span>
 <span class="o">}</span>
 
 <span class="c"># by marco. complements pdfextract</span>
-<span class="k">function </span>pdfmerge<span class="o">()</span>
+<span class="k">function</span> pdfmerge<span class="o">()</span>
 <span class="o">{</span>
   <span class="c"># arguments:</span>
   <span class="c">#   $1 is the name of the output file</span>
   <span class="c">#   $2+ are the names of the input files</span>
-  <span class="nv">OUT</span><span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span>
+  <span class="nv">OUT</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span>
   <span class="nb">shift</span>
 <span class="nb">  </span>gs -sDEVICE<span class="o">=</span>pdfwrite -dNOPAUSE -dBATCH -dSAFER <span class="se">\</span>
   -sOutputFile<span class="o">=</span><span class="nv">$OUT</span> <span class="se">\</span>
@@ -78,7 +78,7 @@ this.</p>
 <p>You can use <code>pdfextract</code> to extract pages 1-3 of a PDF:</p>
 <div class="highlight"><pre><span class="gp">$</span> ls
 <span class="go">my-long-document.pdf</span>
-<span class="gp">$</span> pdfextract 1 3 ./my-long-document.pdf
+<span class="gp">$</span> pdfextract <span class="m">1</span> <span class="m">3</span> ./my-long-document.pdf
 <span class="gp">$</span> ls
 <span class="go">my-long-document_p1-p3.pdf  my-long-document.pdf</span>
 </pre></div>
@@ -93,7 +93,7 @@ this.</p>
 </pre></div>
 <footer class="post-info">
         Posted:
-        <abbr class="published" title="2013-02-08T12:59:00">
+        <abbr class="published" title="2013-02-08T12:59:00-05:00">
                 Feb 08, 2013
         </abbr>
 

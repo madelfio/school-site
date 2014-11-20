@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all-en.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-23T14:46:00-05:00</updated><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-23:notes/av-williams-building</id><summary type="html">&lt;style&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marco D. Adelfio</title><link href="http://umiacs.umd.edu/~marco/" rel="alternate"></link><link href="http://umiacs.umd.edu/~marco/feeds/all-en.atom.xml" rel="self"></link><id>http://umiacs.umd.edu/~marco/</id><updated>2013-02-23T14:46:00-05:00</updated><entry><title>A.V. Williams Building</title><link href="http://umiacs.umd.edu/~marco/notes/av-williams-building" rel="alternate"></link><updated>2013-02-23T14:46:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-23:~marco/notes/av-williams-building</id><summary type="html">&lt;style&gt;
   svg {height:665px; width:750px;}
   #floorplan-wrapper {
     background-color:#fff;
@@ -86,7 +86,7 @@ var imgs = floors.append('image')
 
 // reverse floor order
 floors.sort(function(a,b) {return a&gt;b;});
-&lt;/script&gt;</summary></entry><entry><title>Automated Table Extraction</title><link href="http://umiacs.umd.edu/~marco/notes/automated-table-extraction" rel="alternate"></link><updated>2013-02-22T22:08:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-22:notes/automated-table-extraction</id><summary type="html">&lt;style&gt;
+&lt;/script&gt;</summary></entry><entry><title>Automated Table Extraction</title><link href="http://umiacs.umd.edu/~marco/notes/automated-table-extraction" rel="alternate"></link><updated>2013-02-22T22:08:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-22:~marco/notes/automated-table-extraction</id><summary type="html">&lt;style&gt;
   #bookmarks * {
     -webkit-transition-duration: .2s;
     -moz-transition-duration: .2s;
@@ -308,7 +308,7 @@ state machine  ---&gt;
 &lt;div id="conclusions" class="section"&gt;
 
 &lt;h2&gt;Conclusions&lt;/h2&gt;
-&lt;/div&gt;</summary></entry><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-20:notes/bib-style</id><summary type="html">&lt;style&gt;
+&lt;/div&gt;</summary></entry><entry><title>BibTeX Style Guidelines</title><link href="http://umiacs.umd.edu/~marco/notes/bib-style" rel="alternate"></link><updated>2013-02-20T16:50:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-20:~marco/notes/bib-style</id><summary type="html">&lt;style&gt;
   .body code {
     border:none;
     background:none;
@@ -411,7 +411,7 @@ a bibliography style can abbreviate if necessary.  Either "Last, First" or
 &lt;p&gt;&lt;strong&gt;Titles&lt;/strong&gt; - Ensure that acronyms and words that require capitalization are
 placed within an extra pair of braces.  Otherwise they will be converted to
 lower case.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{{&lt;/span&gt;&lt;span class="n"&gt;UNIX&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;Network&lt;/span&gt; &lt;span class="n"&gt;Programming&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;Sockets&lt;/span&gt; &lt;span class="n"&gt;Networking&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;API&lt;/span&gt;&lt;span class="p"&gt;}}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{{&lt;/span&gt;&lt;span class="nv"&gt;UNIX&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="nv"&gt;Network&lt;/span&gt; &lt;span class="nv"&gt;Programming&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;Sockets&lt;/span&gt; &lt;span class="nv"&gt;Networking&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="nv"&gt;API&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -469,7 +469,7 @@ there for tips on BibTeX syntax, how to deal with foreign or non-standard
 author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 &lt;p&gt;BibTeX syntax highlighting on this page is done using
 &lt;a href="http://www.github.com/madelfio/bibtex-pygments-lexer"&gt;bibtex-pygments-lexer&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;</summary></entry><entry><title>Things I should know</title><link href="http://umiacs.umd.edu/~marco/notes/things-i-should-know" rel="alternate"></link><updated>2013-02-15T00:00:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-15:notes/things-i-should-know</id><summary type="html">&lt;h1&gt;Computer Science&lt;/h1&gt;
+&lt;/div&gt;</summary></entry><entry><title>Things I should know</title><link href="http://umiacs.umd.edu/~marco/notes/things-i-should-know" rel="alternate"></link><updated>2013-02-15T00:00:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-15:~marco/notes/things-i-should-know</id><summary type="html">&lt;h1&gt;Computer Science&lt;/h1&gt;
 &lt;p&gt;A set of questions to review before interviews.&lt;/p&gt;
 &lt;h4&gt;Databases&lt;/h4&gt;
 &lt;ul&gt;
@@ -523,14 +523,14 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 &lt;p&gt;Example:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.census.gov/dataviz/visualizations/057/"&gt;Census Game&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="draft"></category></entry><entry><title>Use cases for tables</title><link href="http://umiacs.umd.edu/~marco/notes/use-cases-for-tables" rel="alternate"></link><updated>2013-02-14T15:24:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-14:notes/use-cases-for-tables</id><summary type="html">&lt;h4&gt;Spreadsheets&lt;/h4&gt;
+&lt;/ul&gt;</summary><category term="draft"></category></entry><entry><title>Use cases for tables</title><link href="http://umiacs.umd.edu/~marco/notes/use-cases-for-tables" rel="alternate"></link><updated>2013-02-14T15:24:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-14:~marco/notes/use-cases-for-tables</id><summary type="html">&lt;h4&gt;Spreadsheets&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://davidmichaelross.com/blog/microsoft-excel-is-everywhere/"&gt;Sorry, Geeks, Microsoft Excel is Everywhere&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Writing Resources</title><link href="http://umiacs.umd.edu/~marco/notes/writing-resources" rel="alternate"></link><updated>2013-02-13T19:17:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-13:notes/writing-resources</id><summary type="html">&lt;h4&gt;Dissertations&lt;/h4&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Writing Resources</title><link href="http://umiacs.umd.edu/~marco/notes/writing-resources" rel="alternate"></link><updated>2013-02-13T19:17:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-13:~marco/notes/writing-resources</id><summary type="html">&lt;h4&gt;Dissertations&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://www.eecs.harvard.edu/~michaelm/postscripts/mythesis.pdf"&gt;Michael Mitzenmacher&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://benfry.com/phd/dissertation-110323c.pdf"&gt;Ben Fry&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Ranking tables in search results</title><link href="http://umiacs.umd.edu/~marco/notes/ranking-tables-in-search-results" rel="alternate"></link><updated>2013-02-13T14:11:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-13:notes/ranking-tables-in-search-results</id><summary type="html">&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Ranking tables in search results</title><link href="http://umiacs.umd.edu/~marco/notes/ranking-tables-in-search-results" rel="alternate"></link><updated>2013-02-13T14:11:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-13:~marco/notes/ranking-tables-in-search-results</id><summary type="html">&lt;p&gt;...&lt;/p&gt;</summary></entry><entry><title>Images Cheat-Sheet</title><link href="http://umiacs.umd.edu/~marco/notes/images-cheat-sheet" rel="alternate"></link><updated>2013-02-08T13:10:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-08:~marco/notes/images-cheat-sheet</id><summary type="html">&lt;h3&gt;Read image information (size, encoding information)&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; file example.png
 &lt;span class="gp"&gt;$&lt;/span&gt; identify example.png  &lt;span class="c"&gt;# (also works with jpegs)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -543,7 +543,7 @@ author names, non-ASCII characters, and other useful tricks.&lt;/p&gt;
 
 
 &lt;p&gt;Resize width to 200, preserving aspect ratio.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize 200 example.png
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -resize &lt;span class="m"&gt;200&lt;/span&gt; example.png
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -569,7 +569,7 @@ original aspect ratio (&lt;a href="http://www.imagemagick.org/script/command-lin
 
 &lt;h3&gt;Add border&lt;/h3&gt;
 &lt;p&gt;Add gray border, 1 pixel wide.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -border 1 -bordercolor gray example.png
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert example.png -border &lt;span class="m"&gt;1&lt;/span&gt; -bordercolor gray example.png
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -580,13 +580,13 @@ conversion can be run multiple times without subsequent runs modifying out.png
 repository and you don't want to keep committing updates when only the dates
 change. From &lt;a href="http://stackoverflow.com/questions/13577280/"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; convert in.png +set date:create +set date:modify ... out.png
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-08:notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Manipulating PDFs</title><link href="http://umiacs.umd.edu/~marco/notes/manipulating-pdfs" rel="alternate"></link><updated>2013-02-08T12:59:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-08:~marco/notes/manipulating-pdfs</id><summary type="html">&lt;p&gt;LaTeX files and their PDF document offspring can be obstinate beasts.  When
 you need to extract or combine parts of documents &lt;em&gt;at the page level&lt;/em&gt;,
 sometimes it's easier to manipulate the output PDF rather than the source
 TeX.  Here are a couple of helper functions that I have in my &lt;code&gt;.bashrc&lt;/code&gt; for
 this.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# source: http://www.linuxjournal.com/content/tech-tip-extract-pages-pdf&lt;/span&gt;
-&lt;span class="k"&gt;function &lt;/span&gt;pdfextract&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt; pdfextract&lt;span class="o"&gt;()&lt;/span&gt;
 &lt;span class="o"&gt;{&lt;/span&gt;
   &lt;span class="c"&gt;# arguments:&lt;/span&gt;
   &lt;span class="c"&gt;#   $1 is the first page of the range to extract&lt;/span&gt;
@@ -594,18 +594,18 @@ this.&lt;/p&gt;
   &lt;span class="c"&gt;#   $3 is the input file&lt;/span&gt;
   &lt;span class="c"&gt;#   output file will be named &amp;quot;inputfile_pXX-pYY.pdf&amp;quot;&lt;/span&gt;
   gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dNOPAUSE -dBATCH -dSAFER &lt;span class="se"&gt;\&lt;/span&gt;
-  -dFirstPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; -dLastPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
-  -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="p"&gt;%.pdf&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;_p&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;-p&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;.pdf &lt;span class="se"&gt;\&lt;/span&gt;
-  &lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;
+  -dFirstPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; -dLastPage&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+  -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="p"&gt;%.pdf&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;_p&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;-p&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;2&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;.pdf &lt;span class="se"&gt;\&lt;/span&gt;
+  &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;3&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 
 &lt;span class="c"&gt;# by marco. complements pdfextract&lt;/span&gt;
-&lt;span class="k"&gt;function &lt;/span&gt;pdfmerge&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt; pdfmerge&lt;span class="o"&gt;()&lt;/span&gt;
 &lt;span class="o"&gt;{&lt;/span&gt;
   &lt;span class="c"&gt;# arguments:&lt;/span&gt;
   &lt;span class="c"&gt;#   $1 is the name of the output file&lt;/span&gt;
   &lt;span class="c"&gt;#   $2+ are the names of the input files&lt;/span&gt;
-  &lt;span class="nv"&gt;OUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="k"&gt;}&lt;/span&gt;
+  &lt;span class="nv"&gt;OUT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;1&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;
   &lt;span class="nb"&gt;shift&lt;/span&gt;
 &lt;span class="nb"&gt;  &lt;/span&gt;gs -sDEVICE&lt;span class="o"&gt;=&lt;/span&gt;pdfwrite -dNOPAUSE -dBATCH -dSAFER &lt;span class="se"&gt;\&lt;/span&gt;
   -sOutputFile&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$OUT&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
@@ -618,7 +618,7 @@ this.&lt;/p&gt;
 &lt;p&gt;You can use &lt;code&gt;pdfextract&lt;/code&gt; to extract pages 1-3 of a PDF:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;$&lt;/span&gt; ls
 &lt;span class="go"&gt;my-long-document.pdf&lt;/span&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; pdfextract 1 3 ./my-long-document.pdf
+&lt;span class="gp"&gt;$&lt;/span&gt; pdfextract &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; ./my-long-document.pdf
 &lt;span class="gp"&gt;$&lt;/span&gt; ls
 &lt;span class="go"&gt;my-long-document_p1-p3.pdf  my-long-document.pdf&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -630,7 +630,7 @@ this.&lt;/p&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; pdfmerge submission.pdf cover-letter.pdf proposal.pdf cv.pdf
 &lt;span class="gp"&gt;$&lt;/span&gt; ls
 &lt;span class="go"&gt;cover-letter.pdf  cv.pdf  proposal.pdf  submission.pdf&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu/~marco,2013-02-07:notes/ssh-tips</id><summary type="html">&lt;p&gt;&lt;em&gt;These are instructions for using ssh to access a machine that doesn't have a
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>SSH Tips</title><link href="http://umiacs.umd.edu/~marco/notes/ssh-tips" rel="alternate"></link><updated>2013-02-07T23:47:00-05:00</updated><author><name>Marco D. Adelfio</name></author><id>tag:umiacs.umd.edu,2013-02-07:~marco/notes/ssh-tips</id><summary type="html">&lt;p&gt;&lt;em&gt;These are instructions for using ssh to access a machine that doesn't have a
 public IP address by going through one that does.  They're written for
 machines on the UMIACS network at UMD, but should apply generically.&lt;/em&gt;&lt;/p&gt;
 &lt;hr /&gt;
@@ -692,10 +692,10 @@ but you should only need to do this once if you have an ssh agent running).&lt;/
 the process with an ssh "ProxyCommand".  Add the following lines to your
 ~/.ssh/config file on your remote computer (create it if it doesn't exist),
 repeated for each host you'd like to be able to ssh to directly.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Host&lt;/span&gt; &lt;span class="n"&gt;lab&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pc&lt;/span&gt;
-  &lt;span class="n"&gt;Hostname&lt;/span&gt; &lt;span class="n"&gt;lab&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umiacs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;edu&lt;/span&gt;
-  &lt;span class="n"&gt;ForwardAgent&lt;/span&gt; &lt;span class="n"&gt;yes&lt;/span&gt;
-  &lt;span class="n"&gt;ProxyCommand&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="n"&gt;openlab&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umiacs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;umd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;edu&lt;/span&gt; &lt;span class="n"&gt;nc&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Host lab-pc
+  Hostname lab-pc.umiacs.umd.edu
+  ForwardAgent yes
+  ProxyCommand ssh openlab.umiacs.umd.edu nc %h %p
 &lt;/pre&gt;&lt;/div&gt;
 
 
