@@ -217,7 +217,7 @@ prose.&lt;/p&gt;
 &lt;p&gt;A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
 such as text color, font face, or font style.&lt;a&gt;&lt;/a&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;There are many ways of creating a table and many ways file formats that can
+&lt;p&gt;There are many ways of creating a table and many file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.&lt;/p&gt;
 &lt;p&gt;While there are many purposes for using a grid of table cells, we focus on
