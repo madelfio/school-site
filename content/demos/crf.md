@@ -137,7 +137,7 @@ A table consists of a 2-dimensional grid of table cells, which can each
 contain a value and can optionally exhibit a variety of cell attributes,
 such as text color, font face, or font style.<a></a><sup>1</sup>
 
-There are many ways of creating a table and many ways file formats that can
+There are many ways of creating a table and many file formats that can
 include tables.  Some common formats are spreadsheets (where Microsoft
 Excel is dominant), HTML tables, PDF tables, and ASCII text tables.
 
