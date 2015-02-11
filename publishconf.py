@@ -16,8 +16,8 @@ LINK_LOCAL_JAVASCRIPT = False
 RELATIVE_URLS = False
 
 MENUITEMS = [
-    ('Projects', SITEURL + '/projects'),
     ('Publications', SITEURL + '/publications'),
+    ('Projects', SITEURL + '/projects'),
     #('Notes', SITEURL + '/notes'),
     ('Links', SITEURL + '/links'),
     ('About', SITEURL + '/about')

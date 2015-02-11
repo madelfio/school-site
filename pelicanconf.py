@@ -24,8 +24,8 @@ CATEGORY_SAVE_AS = '{slug}/index.html'
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 
 MENUITEMS = [
-    ('Projects', '/projects'),
     ('Publications', '/publications'),
+    ('Projects', '/projects'),
     ('Notes', '/notes'),
     ('Demos', '/demos'),
     ('Research', '/research'),
